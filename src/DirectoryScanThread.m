@@ -1,0 +1,97 @@
+//
+//  NTSizeCalculatorThread.m
+//  CocoatechFile
+//
+//  Created by sgehrman on Mon Oct 29 2001.
+//  Copyright (c) 2001 CocoaTech. All rights reserved.
+//
+
+#import "DirectoryScanThread.h"
+#import "NTFileDesc-Utilities.h"
+
+@interface DirectoryScanThread(Private)
+- (void) setDirectoryToScan: (NTFileDesc*) desc;
+- (void) setDirectoryContent: (NSArray*) result; //result; array of NTFileDesc
+@end
+
+
+@implementation DirectoryScanThread
+
++ (NTThreadRunner*)thread:(NTFileDesc*) directoryToScan
+				 delegate:(id<NTThreadRunnerDelegateProtocol>)delegate;
+{
+    DirectoryScanThread* param = [[[DirectoryScanThread alloc] init] autorelease];
+    
+    [param setDirectoryToScan: directoryToScan];
+
+	return [NTThreadRunner thread:param
+						 priority:1
+						 delegate:delegate];	
+}
+
+- (void) dealloc
+{
+	[_directoryToScan release];
+	[_directoryContent release];
+	
+	[super dealloc];
+}
+
+- (NTFileDesc*) directoryToScan
+{
+	return _directoryToScan;
+}
+
+//result; array of NTFileDesc
+- (NSArray*) directoryContent
+{
+	return _directoryContent;
+}
+
+
+@end
+
+@implementation DirectoryScanThread(Private)
+
+- (void) setDirectoryToScan: (NTFileDesc*) desc
+{
+	if ( desc != _directoryToScan )
+	{
+		[_directoryToScan release];
+		_directoryToScan = [desc retain];
+	}
+}
+
+//result; array of NTFileDesc
+- (void) setDirectoryContent: (NSArray*) result
+{
+	if ( result != _directoryContent )
+	{
+		[_directoryContent release];
+		_directoryContent = [result retain];
+	}
+}
+
+@end
+
+
+
+@implementation DirectoryScanThread (Thread)
+
+// must subclass to do work
+- (BOOL)doThreadProc;
+{
+    NTFileDesc* directory = [self directoryToScan];
+	
+    NSArray *result = [directory directoryContentsAutoreleased: NO];
+    
+	if (![[self helper] killed])
+		[self setDirectoryContent: result];
+	
+	[result release];
+		
+    return (![[self helper] killed]);
+}
+
+@end
+
