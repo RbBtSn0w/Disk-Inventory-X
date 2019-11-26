@@ -7,30 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
+		B11C99CD238D563C0062C724 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B11C99CC238D563C0062C724 /* Cocoa.framework */; };
+		B19827D5238D4DE400561962 /* TreeMapView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B19827CE238D4DE400561962 /* TreeMapView.framework */; };
+		B19827D6238D4DE400561962 /* TreeMapView.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B19827CE238D4DE400561962 /* TreeMapView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B19827D7238D4DE400561962 /* CocoaTechStrings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B19827CF238D4DE400561962 /* CocoaTechStrings.framework */; };
+		B19827D8238D4DE400561962 /* CocoaTechStrings.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B19827CF238D4DE400561962 /* CocoaTechStrings.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B19827D9238D4DE400561962 /* OmniFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B19827D0238D4DE400561962 /* OmniFoundation.framework */; };
+		B19827DA238D4DE400561962 /* OmniFoundation.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B19827D0238D4DE400561962 /* OmniFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B19827DB238D4DE400561962 /* CocoatechFile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B19827D1238D4DE400561962 /* CocoatechFile.framework */; };
+		B19827DC238D4DE400561962 /* CocoatechFile.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B19827D1238D4DE400561962 /* CocoatechFile.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B19827DD238D4DE400561962 /* OmniBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B19827D2238D4DE400561962 /* OmniBase.framework */; };
+		B19827DE238D4DE400561962 /* OmniBase.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B19827D2238D4DE400561962 /* OmniBase.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B19827DF238D4DE400561962 /* OmniAppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B19827D3238D4DE400561962 /* OmniAppKit.framework */; };
+		B19827E0238D4DE400561962 /* OmniAppKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B19827D3238D4DE400561962 /* OmniAppKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B19827E1238D4DE400561962 /* CocoatechCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B19827D4238D4DE400561962 /* CocoatechCore.framework */; };
+		B19827E2238D4DE400561962 /* CocoatechCore.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B19827D4238D4DE400561962 /* CocoatechCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FC2A428A2219C89900A484D7 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2A42892219C89900A484D7 /* AppController.m */; };
 		FC2E58FF21D3BFDF00F6F03B /* Disk Inventory Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FC2E58FE21D3BFDF00F6F03B /* Disk Inventory Icon.png */; };
-		FC2E590021D438F400F6F03B /* TreeMapView.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FC715FFD217915BD00A07766 /* TreeMapView.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		FC2E590121D438F400F6F03B /* OmniAppKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FC715FF72179130D00A07766 /* OmniAppKit.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		FC2E590221D438F400F6F03B /* OmniBase.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FC715FF52179130D00A07766 /* OmniBase.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		FC2E590321D438F400F6F03B /* OmniFoundation.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FC715FF62179130D00A07766 /* OmniFoundation.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		FC4C4AC109802035004CCA22 /* Help in Resources */ = {isa = PBXBuildFile; fileRef = FC4C4ABF09802035004CCA22 /* Help */; };
 		FC4C4FF70981520A004CCA22 /* AppsForItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4C4FF50981520A004CCA22 /* AppsForItem.m */; };
-		FC66DEA1107A43AB00F46D76 /* CocoatechFile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC66DE9E107A43AB00F46D76 /* CocoatechFile.framework */; };
-		FC66DEA2107A43AB00F46D76 /* CocoaTechStrings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC66DE9F107A43AB00F46D76 /* CocoaTechStrings.framework */; };
-		FC66DF5C107A47D700F46D76 /* CocoatechFile.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FC66DE9E107A43AB00F46D76 /* CocoatechFile.framework */; };
-		FC66DF5D107A47D700F46D76 /* CocoaTechStrings.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FC66DE9F107A43AB00F46D76 /* CocoaTechStrings.framework */; };
-		FC715FF82179130E00A07766 /* OmniBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC715FF52179130D00A07766 /* OmniBase.framework */; };
-		FC715FF92179130E00A07766 /* OmniFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC715FF62179130D00A07766 /* OmniFoundation.framework */; };
-		FC715FFA2179130E00A07766 /* OmniAppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC715FF72179130D00A07766 /* OmniAppKit.framework */; };
-		FC715FFE217915BD00A07766 /* TreeMapView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC715FFD217915BD00A07766 /* TreeMapView.framework */; };
 		FC7F775D1067BAB10090E839 /* NTFilePasteboardSource.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7F775C1067BAB10090E839 /* NTFilePasteboardSource.m */; };
 		FC7F77641067BC310090E839 /* NTInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7F77631067BC310090E839 /* NTInfoView.m */; };
 		FC7F77D71067C9500090E839 /* NTTitledInfoPair.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7F77D41067C9500090E839 /* NTTitledInfoPair.m */; };
 		FC7F77D81067C9500090E839 /* NTTitledInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC7F77D61067C9500090E839 /* NTTitledInfoView.m */; };
 		FCCEC857107F734C00AEB282 /* DirectoryScanThread.m in Sources */ = {isa = PBXBuildFile; fileRef = FCCEC856107F734C00AEB282 /* DirectoryScanThread.m */; };
-		FCCEC8B1107F74BC00AEB282 /* CocoatechCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCCEC8B0107F74BC00AEB282 /* CocoatechCore.framework */; };
-		FCCEC981107F7C9A00AEB282 /* CocoatechCore.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = FCCEC8B0107F74BC00AEB282 /* CocoatechCore.framework */; };
 		FCCFB2AA097FA3FD009EA2B6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FCCFB2A9097FA3FD009EA2B6 /* main.m */; };
 		FCCFB303097FA42B009EA2B6 /* DIXTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCCFB2AD097FA42B009EA2B6 /* DIXTableView.m */; };
 		FCCFB304097FA42B009EA2B6 /* DIXOutlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCCFB2AF097FA42B009EA2B6 /* DIXOutlineView.m */; };
@@ -103,23 +103,6 @@
 		FCFB17B621B876A400E3F8C4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCFB17B521B876A400E3F8C4 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		FC2E590521D439CF00F6F03B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FC745C8821C048D00023DC2D /* TreeMapView.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
-			remoteInfo = TreeMapView;
-		};
-		FC745C8C21C048D00023DC2D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FC745C8821C048D00023DC2D /* TreeMapView.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
-			remoteInfo = TreeMapView;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		FCED9ED9106ABB4D00667E44 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -127,24 +110,29 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				FC2E590021D438F400F6F03B /* TreeMapView.framework in CopyFiles */,
-				FC2E590121D438F400F6F03B /* OmniAppKit.framework in CopyFiles */,
-				FC2E590221D438F400F6F03B /* OmniBase.framework in CopyFiles */,
-				FC2E590321D438F400F6F03B /* OmniFoundation.framework in CopyFiles */,
-				FCCEC981107F7C9A00AEB282 /* CocoatechCore.framework in CopyFiles */,
-				FC66DF5C107A47D700F46D76 /* CocoatechFile.framework in CopyFiles */,
-				FC66DF5D107A47D700F46D76 /* CocoaTechStrings.framework in CopyFiles */,
+				B19827DE238D4DE400561962 /* OmniBase.framework in CopyFiles */,
+				B19827DC238D4DE400561962 /* CocoatechFile.framework in CopyFiles */,
+				B19827D6238D4DE400561962 /* TreeMapView.framework in CopyFiles */,
+				B19827D8238D4DE400561962 /* CocoaTechStrings.framework in CopyFiles */,
+				B19827E0238D4DE400561962 /* OmniAppKit.framework in CopyFiles */,
+				B19827DA238D4DE400561962 /* OmniFoundation.framework in CopyFiles */,
+				B19827E2238D4DE400561962 /* CocoatechCore.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
-		2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32DBCF750370BD2300C91783 /* Disk Inventory X_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Disk Inventory X_Prefix.pch"; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* Disk Inventory X.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Disk Inventory X.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B11C99CC238D563C0062C724 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		B19827CE238D4DE400561962 /* TreeMapView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TreeMapView.framework; path = thirdLIB/TreeMapView/TreeMapView.framework; sourceTree = "<group>"; };
+		B19827CF238D4DE400561962 /* CocoaTechStrings.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaTechStrings.framework; path = thirdLIB/CocoaTech/CocoaTechStrings.framework; sourceTree = "<group>"; };
+		B19827D0238D4DE400561962 /* OmniFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OmniFoundation.framework; path = thirdLIB/OmniFrameworks/OmniFoundation.framework; sourceTree = "<group>"; };
+		B19827D1238D4DE400561962 /* CocoatechFile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoatechFile.framework; path = thirdLIB/CocoaTech/CocoatechFile.framework; sourceTree = "<group>"; };
+		B19827D2238D4DE400561962 /* OmniBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OmniBase.framework; path = thirdLIB/OmniFrameworks/OmniBase.framework; sourceTree = "<group>"; };
+		B19827D3238D4DE400561962 /* OmniAppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OmniAppKit.framework; path = thirdLIB/OmniFrameworks/OmniAppKit.framework; sourceTree = "<group>"; };
+		B19827D4238D4DE400561962 /* CocoatechCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoatechCore.framework; path = thirdLIB/CocoaTech/CocoatechCore.framework; sourceTree = "<group>"; };
 		FC2A42882219C89900A484D7 /* AppController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		FC2A42892219C89900A484D7 /* AppController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
 		FC2D7D7221FE4ABB004D0614 /* de */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = de; path = de.lproj/TreeMapPreferencesPage.nib; sourceTree = "<group>"; };
@@ -179,13 +167,6 @@
 		FC4C4AC009802035004CCA22 /* English */ = {isa = PBXFileReference; lastKnownFileType = folder; name = English; path = English.lproj/Help; sourceTree = "<group>"; };
 		FC4C4FF40981520A004CCA22 /* AppsForItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppsForItem.h; sourceTree = "<group>"; };
 		FC4C4FF50981520A004CCA22 /* AppsForItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppsForItem.m; sourceTree = "<group>"; };
-		FC66DE9E107A43AB00F46D76 /* CocoatechFile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoatechFile.framework; path = ../../../../PathFinder_4.8.5_SDK/build/Debug/CocoatechFile.framework; sourceTree = SOURCE_ROOT; };
-		FC66DE9F107A43AB00F46D76 /* CocoaTechStrings.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaTechStrings.framework; path = ../../../../PathFinder_4.8.5_SDK/build/Debug/CocoaTechStrings.framework; sourceTree = SOURCE_ROOT; };
-		FC715FF52179130D00A07766 /* OmniBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OmniBase.framework; path = "../../../../OmniFrameworks_2018-09-22/Build/Products/Debug/OmniBase.framework"; sourceTree = "<group>"; };
-		FC715FF62179130D00A07766 /* OmniFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OmniFoundation.framework; path = "../../../../OmniFrameworks_2018-09-22/Build/Products/Debug/OmniFoundation.framework"; sourceTree = "<group>"; };
-		FC715FF72179130D00A07766 /* OmniAppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OmniAppKit.framework; path = "../../../../OmniFrameworks_2018-09-22/Build/Products/Debug/OmniAppKit.framework"; sourceTree = "<group>"; };
-		FC715FFD217915BD00A07766 /* TreeMapView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TreeMapView.framework; path = ../../../../TreeMapView/vdev/make/Build/Products/Debug/TreeMapView.framework; sourceTree = "<group>"; };
-		FC745C8821C048D00023DC2D /* TreeMapView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TreeMapView.xcodeproj; path = ../../../../TreeMapView/vdev/make/src/TreeMapView.xcodeproj; sourceTree = "<group>"; };
 		FC7F775B1067BAB10090E839 /* NTFilePasteboardSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTFilePasteboardSource.h; sourceTree = "<group>"; };
 		FC7F775C1067BAB10090E839 /* NTFilePasteboardSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NTFilePasteboardSource.m; sourceTree = "<group>"; };
 		FC7F77621067BC310090E839 /* NTInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTInfoView.h; sourceTree = "<group>"; };
@@ -212,7 +193,6 @@
 		FCA1D0C72205FF2D004E9468 /* fr */ = {isa = PBXFileReference; lastKnownFileType = folder; name = fr; path = fr.lproj/Help; sourceTree = "<group>"; };
 		FCCEC855107F734C00AEB282 /* DirectoryScanThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectoryScanThread.h; sourceTree = "<group>"; };
 		FCCEC856107F734C00AEB282 /* DirectoryScanThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectoryScanThread.m; sourceTree = "<group>"; };
-		FCCEC8B0107F74BC00AEB282 /* CocoatechCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoatechCore.framework; path = /Users/Doom/Dev/PathFinder_4.8.5_SDK/build/Debug/CocoatechCore.framework; sourceTree = "<absolute>"; };
 		FCCFB2A9097FA3FD009EA2B6 /* main.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FCCFB2AC097FA42B009EA2B6 /* DIXTableView.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = DIXTableView.h; sourceTree = "<group>"; };
 		FCCFB2AD097FA42B009EA2B6 /* DIXTableView.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = DIXTableView.m; sourceTree = "<group>"; };
@@ -335,39 +315,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */,
-				FC715FFE217915BD00A07766 /* TreeMapView.framework in Frameworks */,
-				FC66DEA1107A43AB00F46D76 /* CocoatechFile.framework in Frameworks */,
-				FC66DEA2107A43AB00F46D76 /* CocoaTechStrings.framework in Frameworks */,
-				FC715FFA2179130E00A07766 /* OmniAppKit.framework in Frameworks */,
-				FC715FF82179130E00A07766 /* OmniBase.framework in Frameworks */,
-				FC715FF92179130E00A07766 /* OmniFoundation.framework in Frameworks */,
-				FCCEC8B1107F74BC00AEB282 /* CocoatechCore.framework in Frameworks */,
+				B11C99CD238D563C0062C724 /* Cocoa.framework in Frameworks */,
+				B19827DD238D4DE400561962 /* OmniBase.framework in Frameworks */,
+				B19827DB238D4DE400561962 /* CocoatechFile.framework in Frameworks */,
+				B19827D5238D4DE400561962 /* TreeMapView.framework in Frameworks */,
+				B19827D7238D4DE400561962 /* CocoaTechStrings.framework in Frameworks */,
+				B19827DF238D4DE400561962 /* OmniAppKit.framework in Frameworks */,
+				B19827D9238D4DE400561962 /* OmniFoundation.framework in Frameworks */,
+				B19827E1238D4DE400561962 /* CocoatechCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */,
-			);
-			includeInIndex = 0;
-			name = "Linked Frameworks";
-			sourceTree = "<group>";
-		};
-		1058C7A8FEA54F5311CA2CBB /* Other Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */,
-				2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */,
-			);
-			includeInIndex = 0;
-			name = "Other Frameworks";
-			sourceTree = "<group>";
-		};
 		19C28FB0FE9D524F11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -397,7 +358,6 @@
 				2A37F4AFFDCFA73011CA2CEA /* Other Sources */,
 				2A37F4B8FDCFA73011CA2CEA /* Resources */,
 				2A37F4C3FDCFA73011CA2CEA /* Frameworks */,
-				FCEE299D106266CB00B16DBB /* Project References */,
 				19C28FB0FE9D524F11CA2CBB /* Products */,
 			);
 			name = "Disk Inventory X";
@@ -440,42 +400,17 @@
 		2A37F4C3FDCFA73011CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FC715FFD217915BD00A07766 /* TreeMapView.framework */,
-				FC66DCF5107A28A500F46D76 /* OmniGroup */,
-				FC66DB02107A27E600F46D76 /* CocoaTech */,
-				1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */,
-				1058C7A8FEA54F5311CA2CBB /* Other Frameworks */,
+				B11C99CC238D563C0062C724 /* Cocoa.framework */,
+				B19827D4238D4DE400561962 /* CocoatechCore.framework */,
+				B19827D1238D4DE400561962 /* CocoatechFile.framework */,
+				B19827CF238D4DE400561962 /* CocoaTechStrings.framework */,
+				B19827D3238D4DE400561962 /* OmniAppKit.framework */,
+				B19827D2238D4DE400561962 /* OmniBase.framework */,
+				B19827D0238D4DE400561962 /* OmniFoundation.framework */,
+				B19827CE238D4DE400561962 /* TreeMapView.framework */,
 			);
 			includeInIndex = 0;
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		FC66DB02107A27E600F46D76 /* CocoaTech */ = {
-			isa = PBXGroup;
-			children = (
-				FCCEC8B0107F74BC00AEB282 /* CocoatechCore.framework */,
-				FC66DE9E107A43AB00F46D76 /* CocoatechFile.framework */,
-				FC66DE9F107A43AB00F46D76 /* CocoaTechStrings.framework */,
-			);
-			name = CocoaTech;
-			sourceTree = "<group>";
-		};
-		FC66DCF5107A28A500F46D76 /* OmniGroup */ = {
-			isa = PBXGroup;
-			children = (
-				FC715FF72179130D00A07766 /* OmniAppKit.framework */,
-				FC715FF52179130D00A07766 /* OmniBase.framework */,
-				FC715FF62179130D00A07766 /* OmniFoundation.framework */,
-			);
-			name = OmniGroup;
-			sourceTree = "<group>";
-		};
-		FC745C8921C048D00023DC2D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				FC745C8D21C048D00023DC2D /* TreeMapView.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		FC7F775A1067BAB10090E839 /* CocoaTech-Depreciated */ = {
@@ -707,14 +642,6 @@
 			name = Documentation;
 			sourceTree = "<group>";
 		};
-		FCEE299D106266CB00B16DBB /* Project References */ = {
-			isa = PBXGroup;
-			children = (
-				FC745C8821C048D00023DC2D /* TreeMapView.xcodeproj */,
-			);
-			name = "Project References";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -731,7 +658,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				FC2E590621D439CF00F6F03B /* PBXTargetDependency */,
 			);
 			name = "Disk Inventory X";
 			productInstallPath = "$(HOME)/Applications";
@@ -748,7 +674,6 @@
 				LastUpgradeCheck = 1000;
 				TargetAttributes = {
 					8D15AC270486D014006FF6A4 = {
-						DevelopmentTeam = 65J464P6J4;
 						SystemCapabilities = {
 							com.apple.HardenedRuntime = {
 								enabled = 0;
@@ -765,6 +690,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
+				English,
 				en,
 				de,
 				es,
@@ -772,28 +698,12 @@
 			);
 			mainGroup = 2A37F4AAFDCFA73011CA2CEA /* Disk Inventory X */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = FC745C8921C048D00023DC2D /* Products */;
-					ProjectRef = FC745C8821C048D00023DC2D /* TreeMapView.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				8D15AC270486D014006FF6A4 /* Disk Inventory X */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		FC745C8D21C048D00023DC2D /* TreeMapView.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = TreeMapView.framework;
-			remoteRef = FC745C8C21C048D00023DC2D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8D15AC2B0486D014006FF6A4 /* Resources */ = {
@@ -909,14 +819,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		FC2E590621D439CF00F6F03B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = TreeMapView;
-			targetProxy = FC2E590521D439CF00F6F03B /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FC4C4ABF09802035004CCA22 /* Help */ = {
@@ -1080,31 +982,56 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_IDENTITY = "";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = "Disk Inventory X.entitlements";
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 65J464P6J4;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 46H4JB8JL7;
+				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(FRAMEWORK_SEARCH_PATHS)",
-					"$(FRAMEWORK_SEARCH_PATHS_COCOATECH)",
-					"$(FRAMEWORK_SEARCH_PATHS_OMNI)",
-					"$(FRAMEWORK_SEARCH_PATHS_TREEMAP)",
+					"$(PROJECT_DIR)/thirdLIB/TreeMapView",
+					"$(PROJECT_DIR)/thirdLIB/CocoaTech",
+					"$(PROJECT_DIR)/thirdLIB/OmniFrameworks",
 				);
-				FRAMEWORK_SEARCH_PATHS_COCOATECH = "\"$(SRCROOT)/../../../../PathFinder_4.8.5_SDK/build/Debug\"";
-				FRAMEWORK_SEARCH_PATHS_OMNI = "\"$(SRCROOT)/../../../../OmniFrameworks_2018-09-22/Build/Products/Debug\"";
-				FRAMEWORK_SEARCH_PATHS_TREEMAP = "\"$(SRCROOT)/../../../../TreeMapView/vdev/make/Build/Products/Debug\"";
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_VERSION = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.derlien.DiskInventoryX;
 				PRODUCT_NAME = "Disk Inventory X";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = app;
@@ -1115,31 +1042,55 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CODE_SIGN_IDENTITY = "";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = "Disk Inventory X.entitlements";
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = 46H4JB8JL7;
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				FRAMEWORK_SEARCH_PATHS = (
-					"$(FRAMEWORK_SEARCH_PATHS)",
-					"$(FRAMEWORK_SEARCH_PATHS_COCOATECH)",
-					"$(FRAMEWORK_SEARCH_PATHS_OMNI)",
-					"$(FRAMEWORK_SEARCH_PATHS_TREEMAP)",
+					"$(PROJECT_DIR)/thirdLIB/TreeMapView",
+					"$(PROJECT_DIR)/thirdLIB/CocoaTech",
+					"$(PROJECT_DIR)/thirdLIB/OmniFrameworks",
 				);
-				FRAMEWORK_SEARCH_PATHS_COCOATECH = "\"$(SRCROOT)/../../../../PathFinder_4.8.5_SDK/build/Release\"";
-				FRAMEWORK_SEARCH_PATHS_OMNI = "\"$(SRCROOT)/../../../../OmniFrameworks_2018-09-22/Build/Products/Debug\"";
-				FRAMEWORK_SEARCH_PATHS_TREEMAP = "\"$(SRCROOT)/../../../../TreeMapView/vdev/make/Build/Release\"";
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = "";
 				GCC_VERSION = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.derlien.DiskInventoryX;
 				PRODUCT_NAME = "Disk Inventory X";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = macosx;
 				VALID_ARCHS = x86_64;
 				WRAPPER_EXTENSION = app;
@@ -1149,33 +1100,47 @@
 		C05733CC08A9546B00998B17 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Disk Inventory X_Prefix.pch";
-				GCC_VERSION = 4.0;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				INSTALL_PATH = "$(LOCAL_APPS_DIR)";
+				MACH_O_TYPE = mh_execute;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				SHARED_PRECOMPS_DIR = "$(PROJECT_TEMP_DIR)/SharedPrecompiledHeaders";
+				SHARED_PRECOMPS_DIR = "$(OBJROOT)/SharedPrecompiledHeaders";
 			};
 			name = Debug;
 		};
 		C05733CD08A9546B00998B17 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ENABLE_OBJC_ARC = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DRIVERKIT_DEPLOYMENT_TARGET = 19.0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Disk Inventory X_Prefix.pch";
-				GCC_VERSION = 4.0;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				INSTALL_PATH = "$(LOCAL_APPS_DIR)";
+				MACH_O_TYPE = mh_execute;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				SDKROOT = macosx;
-				SHARED_PRECOMPS_DIR = "$(PROJECT_TEMP_DIR)/SharedPrecompiledHeaders";
+				SHARED_PRECOMPS_DIR = "$(OBJROOT)/SharedPrecompiledHeaders";
 			};
 			name = Release;
 		};
