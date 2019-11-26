@@ -1,11 +1,9 @@
-// Copyright 1997-2005 Omni Development, Inc.  All rights reserved.
+// Copyright 1997-2019 Omni Development, Inc. All rights reserved.
 //
 // This software may only be used and reproduced according to the
 // terms in the file OmniSourceLicense.html, which should be
 // distributed with this project and can also be found at
 // <http://www.omnigroup.com/developer/sourcecode/sourcelicense/>.
-//
-// $Header: svn+ssh://source.omnigroup.com/Source/svn/Omni/tags/OmniSourceRelease/2008-09-09/OmniGroup/Frameworks/OmniAppKit/Widgets.subproj/OAScrollView.h 66043 2005-07-25 21:17:05Z kc $
 
 #import <AppKit/NSScrollView.h>
 #import <AppKit/NSCell.h> // For NSControlSize
@@ -26,7 +24,7 @@ typedef enum { YES_SCROLL, NO_SCROLL, VERTICAL_SCROLL, AUTO_SCROLL, MANUAL_SCROL
     NSTextField *pagePromptTextField;
     NSTextField *pageNumberTextField;
     NSTextField *pagesCountTextField;
-    float zoomFactor;
+    CGFloat zoomFactor;
     ScrollingBehavior scrollBehavior;
     id nonretained_delegate;
     struct {
@@ -40,21 +38,18 @@ typedef enum { YES_SCROLL, NO_SCROLL, VERTICAL_SCROLL, AUTO_SCROLL, MANUAL_SCROL
 - (NSSize)contentSizeForFrameSize:(NSSize)fSize;
 - (NSSize)contentSizeForHorizontalScroller:(BOOL)hasHorizontalScroller verticalScroller:(BOOL)hasVerticalScroller;
 
-- (void)zoomToScale:(double)newZoomFactor;
+- (void)zoomToScale:(CGFloat)newZoomFactor;
 - (void)zoomFromSender:(NSMenuItem *)sender;
-- (float)zoomFactor;
+- (CGFloat)zoomFactor;
 - (void)setDelegate:(id)newNonretainedDelegate;
 - (ScrollingBehavior)scrollBehavior;
 - (void)setScrollBehavior:(ScrollingBehavior)behavior;
 - (void)showingPageNumber:(int)pageNumber of:(unsigned int)pagesCount;
 - (void)gotoPage:(id)sender;
-- (BOOL)processKeyDownCharacter:(unichar)character modifierFlags:(unsigned int)modifierFlags;
+- (BOOL)processKeyDownCharacter:(unichar)character modifierFlags:(NSUInteger)modifierFlags;
 
 - (void)setSmoothScrollEnabled:(BOOL)smoothScrollEnabled;
 - (BOOL)smoothScrollEnabled;
-
-- (NSSize)idealSizeForAvailableSize:(NSSize)availableSize;
-    // Returns the largest size which would actually be useful in displaying the content view, given a particular availableSize (which determines whether scrollers would be necessary, but doesn't actually limit the return value).
 
 - (void)setVerticalWidget:(NSView *)newVerticalWidget;
 - (NSView *)verticalWidget;

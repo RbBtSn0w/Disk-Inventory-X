@@ -1,16 +1,16 @@
-// Copyright 2005-2006, 2008 Omni Development, Inc.  All rights reserved.
+// Copyright 2005-2019 Omni Development, Inc. All rights reserved.
 //
 // This software may only be used and reproduced according to the
 // terms in the file OmniSourceLicense.html, which should be
 // distributed with this project and can also be found at
 // <http://www.omnigroup.com/developer/sourcecode/sourcelicense/>.
-//
-// $Header: svn+ssh://source.omnigroup.com/Source/svn/Omni/tags/OmniSourceRelease/2008-09-09/OmniGroup/Frameworks/OmniFoundation/DataStructures.subproj/OFRationalNumber.h 104581 2008-09-06 21:18:23Z kc $
 
 #import <Foundation/NSValue.h>
 
+typedef unsigned long ofr_component;
+
 struct OFRationalNumberStruct {
-    unsigned long numerator, denominator;    
+    ofr_component numerator, denominator;    
     unsigned short negative: 1;
     unsigned short lop: 1;
 };
@@ -27,7 +27,7 @@ double OFRationalToDouble(struct OFRationalNumberStruct v);
 long OFRationalToLong(struct OFRationalNumberStruct v);
 
 NSString *OFRationalToStringForStorage(struct OFRationalNumberStruct a);
-NSString *OFRationalToStringForLocale(struct OFRationalNumberStruct a, NSDictionary *dict);
+NSString *OFRationalToStringForLocale(struct OFRationalNumberStruct a, id locale);
 BOOL OFRationalFromStringForStorage(NSString *s, struct OFRationalNumberStruct *n);
 
 /* Operations on OFRationals */
@@ -37,7 +37,7 @@ struct OFRationalNumberStruct OFRationalInverse(struct OFRationalNumberStruct n)
 BOOL OFRationalIsEqual(struct OFRationalNumberStruct a, struct OFRationalNumberStruct b);
 NSComparisonResult OFRationalCompare(struct OFRationalNumberStruct a, struct OFRationalNumberStruct b);
 BOOL OFRationalIsWellFormed(struct OFRationalNumberStruct n);
-void OFRationalRound(struct OFRationalNumberStruct *n, unsigned long max_denominator);
+void OFRationalRound(struct OFRationalNumberStruct *n, ofr_component max_denominator);
 
 @interface OFRationalNumber : NSNumber
 {

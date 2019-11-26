@@ -1,59 +1,27 @@
-// Copyright 2005-2008 Omni Development, Inc.  All rights reserved.
+// Copyright 2005-2019 Omni Development, Inc. All rights reserved.
 //
 // This software may only be used and reproduced according to the
 // terms in the file OmniSourceLicense.html, which should be
 // distributed with this project and can also be found at
 // <http://www.omnigroup.com/developer/sourcecode/sourcelicense/>.
-//
-// $Header: svn+ssh://source.omnigroup.com/Source/svn/Omni/tags/OmniSourceRelease/2008-09-09/OmniGroup/Frameworks/OmniAppKit/OAUtilities.h 103137 2008-07-22 02:19:51Z wiml $
 
-#if !defined(MAC_OS_X_VERSION_10_5) || MAC_OS_X_VERSION_MIN_REQUIRED < MAC_OS_X_VERSION_10_5
-typedef float CGFloat;
-#define cgFloatValue floatValue
-#else
 #import <OmniFoundation/NSNumber-OFExtensions-CGTypes.h>
-#endif
+#import <AppKit/NSLayoutConstraint.h> // for NSEdgeInsets
+#import <Foundation/NSGeometry.h> // for NSInsetRect
+#import <Foundation/NSString.h> // for +stringWithFormat:
 
-#ifdef __ppc__
-
-// Vanilla PPC code, but since PPC has a reciprocal square root estimate instruction,
-// runs *much* faster than calling sqrt().  We'll use one Newton-Raphson
-// refinement step to get bunch more precision in the 1/sqrt() value for very little cost.
-// it returns fairly accurate results (error below 1.0e-5 up to 100000.0 in 0.1 increments).
-
-// added -force_cpusubtype_ALL to get this to compile
-static inline float OAFastReciprocalSquareRoot(float x)
-{
-    const float half = 0.5;
-    const float one  = 1.0;
-    float B, est_y0, est_y1;
-    
-    // This'll NaN if it hits frsqrte.  Handle both +0.0 and -0.0
-    if (fabsf(x) == 0.0)
-        return x;
-        
-    B = x;
-    asm("frsqrte %0,%1" : "=f" (est_y0) : "f" (B));
-
-    /* First refinement step */
-    est_y1 = est_y0 + half*est_y0*(one - B*est_y0*est_y0);
-
-    return est_y1;
-}
-
-#else
 
 #import <math.h>
+#import <tgmath.h>
 
-static inline float OAFastReciprocalSquareRoot(float x)
+// Used to have a ppc frsqrte version, but don't have an x86_64 version right now
+static inline CGFloat OAFastReciprocalSquareRoot(CGFloat x)
 {
-    return 1.0f / sqrtf(x);
+    return (CGFloat)(1.0f / sqrt(x));
 }
 
-#endif
-
-
-#if defined(__COREGRAPHICS__) && !defined(__cplusplus)
+#if !defined(TARGET_OS_IPHONE) ||!TARGET_OS_IPHONE
+#import <Foundation/NSAffineTransform.h>
 
 /*
  AppKit and CoreGraphics both use the good old PostScript six-element homogeneous coordinate transform matrix, but they name the elements differently ...
@@ -85,3 +53,36 @@ static inline NSAffineTransformStruct NSAffineTransformFromCG(CGAffineTransform 
 
 #endif
 
+extern BOOL OAPushValueThroughBinding(id self, id objectValue, NSString *binding);
+
+/*
+ These have to live here because NSEdgeInsets lives in <AppKit/NSLayoutConstraint.h> instead of in <Foundation/NSGeometry.h> for no good reason
+*/
+
+// Slices an NSRect into subrects based on edge inset values. To get three-way slicing, set either top/bottom or left/right insets to zero. All arguments are required. (If you don't care about a value, pass in `&(NSRect){}`.) If isFlipped=YES, top is NSMinYEdge, otherwise it is NSMaxYEdge.
+extern void OASliceRectByEdgeInsets(NSRect rect, BOOL isFlipped, NSEdgeInsets insets, NSRect *topLeft, NSRect *midLeft, NSRect *bottomLeft, NSRect *topCenter, NSRect *midCenter, NSRect *bottomCenter, NSRect *topRight, NSRect *midRight, NSRect *bottomRight);
+
+// Insets an NSRect on each side by the amount specified in `insets`. If isFlipped=YES, top is NSMinYEdge, otherwise it is NSMaxYEdge.
+static inline NSRect OAInsetRectByEdgeInsets(NSRect rect, NSEdgeInsets insets, BOOL isFlipped)
+{
+    rect.origin.x += insets.left;
+    rect.size.width -= insets.left + insets.right;
+    rect.size.height -= insets.top + insets.bottom;
+    
+    if (isFlipped)
+        rect.origin.y += insets.top;
+    else
+        rect.origin.y += insets.bottom;
+    
+    return rect;
+}
+
+static inline NSRect OAInsetRectBySize(NSRect rect, NSSize size)
+{
+    return NSInsetRect(rect, size.width, size.height);
+}
+
+static inline NSString * __attribute__((overloadable)) OAToString(NSEdgeInsets insets)
+{
+    return [NSString stringWithFormat:@"{top=%f, left=%f, bottom=%f, right=%f}", insets.top, insets.left, insets.bottom, insets.right];
+}

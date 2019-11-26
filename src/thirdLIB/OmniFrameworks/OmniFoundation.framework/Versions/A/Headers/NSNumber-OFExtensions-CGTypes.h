@@ -1,15 +1,18 @@
-// Copyright 2008 Omni Development, Inc.  All rights reserved.
+// Copyright 2008-2019 Omni Development, Inc. All rights reserved.
 //
 // This software may only be used and reproduced according to the
 // terms in the file OmniSourceLicense.html, which should be
 // distributed with this project and can also be found at
 // <http://www.omnigroup.com/developer/sourcecode/sourcelicense/>.
-//
-// $Header: svn+ssh://source.omnigroup.com/Source/svn/Omni/tags/OmniSourceRelease/2008-09-09/OmniGroup/Frameworks/OmniFoundation/OpenStepExtensions.subproj/NSNumber-OFExtensions-CGTypes.h 103145 2008-07-22 02:54:38Z wiml $
 
 #import <Foundation/NSString.h>
 #import <Foundation/NSValue.h>
+
+#if !defined(TARGET_OS_IPHONE) || !TARGET_OS_IPHONE
 #import <Foundation/NSGeometry.h>  // This seems to be the most parsimonious way to include CGBase.h for the CGFloat typedef
+#else
+#import <CoreGraphics/CGBase.h>
+#endif
 
 @interface NSNumber (OFCGTypeExtensions)
 

@@ -1,0 +1,295 @@
+/* resizing byte formatter - this word is separate because of a bug in NSNumberFormatter */
+" bytes" = " bytes";
+
+/* resizing bytes formatter bytes format */
+"#,##0" = "#,##0";
+
+/* resizing bytes formatter gigabytes format */
+"#,##0.0 GB" = "#,##0.0 GB";
+
+/* resizing bytes formatter kilobytes format */
+"#,##0.0 kB" = "#,##0.0 kB";
+
+/* resizing bytes formatter megabytes format */
+"#,##0.0 MB" = "#,##0.0 MB";
+
+/* resizing bytes formatter petabytes format */
+"#,##0.0 PB" = "#,##0.0 PB";
+
+/* resizing bytes formatter terabytes format */
+"#,##0.0 TB" = "#,##0.0 TB";
+
+/* format string for color with brightness description (brightness, color name)
+   format string for color with saturation description (saturation, color name) */
+"%@ %@" = "%1$@ %2$@";
+
+/* preferences panel title format */
+"%@ Preferences" = "%@ Preferences";
+
+/* format string for color with saturation and brightness descriptions (brightness, saturation, color name) */
+"%@, %@ %@" = "%1$@, %2$@ %3$@";
+
+/* alpha with color description */
+"%d%% %@" = "%1$d%% %2$@";
+
+/* Alert message when restoring configuration settings to default state */
+"All configuration values will be restored to their default values." = "All configuration values will be restored to their default values.";
+
+/* script execute error message */
+"AppleScript reported the following error:\n\n%@" = "AppleScript reported the following error:\n\n%@";
+
+/* script loading error message */
+"AppleScript reported the following error:\n%@" = "AppleScript reported the following error:\n%@";
+
+/* autosize all columns contextual menu item */
+"Auto Size All Columns" = "Auto Size All Columns";
+
+/* autosize column contextual menu item */
+"Auto Size Column" = "Auto Size Column";
+
+/* Automator Workflow execute error message */
+"Automator reported the following error:\n\n%@" = "Automator reported the following error:\n\n%@";
+
+/* Automator Workflow error message */
+"Automator reported the following error:\n%@" = "Automator reported the following error:\n%@";
+
+/* word comparing color brightnesss */
+"Bright" = "Bright";
+
+/* alert panel button
+   button title
+   button title for certificate trust warning/prompt - cancel the operation */
+"Cancel" = "Cancel";
+
+/* error message */
+"Cannot lock a document inside the application package." = "Cannot lock a document inside the application package.";
+
+/* error message */
+"Cannot unlock a document inside the application package." = "Cannot unlock a document inside the application package.";
+
+/* alert message */
+"Changed the '%@' preference from '%@' to '%@'" = "Changed the '%1$@' preference from '%2$@' to '%3$@'";
+
+/* Date picker window title */
+"Choose Date" = "Choose Date";
+
+/* informative text for reset-to-defaults alert */
+"Choosing Reset will restore all settings (including options not in this Preferences window, such as window sizes and toolbars) to the state they were in when %@ was first installed." = "Choosing Reset will restore all settings (including options not in this Preferences window, such as window sizes and toolbars) to the state they were in when %@ was first installed.";
+
+/* informative text for reset-to-defaults alert */
+"Choosing Reset will restore all settings in all preference panes to the state they were in when %@ was first installed." = "Choosing Reset will restore all settings in all preference panes to the state they were in when %@ was first installed.";
+
+/* informative text for reset-to-defaults alert */
+"Choosing Reset will restore all settings in this pane to the state they were in when %@ was first installed." = "Choosing Reset will restore all settings in this pane to the state they were in when %@ was first installed.";
+
+/* color list name */
+"Classic Crayons" = "Classic Crayons";
+
+/* name of completely transparent color */
+"Clear" = "Clear";
+
+/* field label - password prompt dialog - confirmation of entered password/passphrase */
+"Confirm:" = "Confirm:";
+
+/* button title for certificate trust warning/prompt - continue with operation despite certificate problem */
+"Continue" = "Continue";
+
+/* word comparing color brightnesss */
+"Dark" = "Dark";
+
+/* word comparing color saturations */
+"Deep" = "Deep";
+
+/* Color sync profile load error recovery description */
+"Defaulting to '%@'" = "Defaulting to '%@'";
+
+/* error message */
+"Documents cannot be moved inside the application package." = "Documents cannot be moved inside the application package.";
+
+/* error message */
+"Documents cannot be saved inside the application package." = "Documents cannot be saved inside the application package.";
+
+/* script error panel button */
+"Edit Script" = "Edit Script";
+
+/* Automatork workflow error panel button */
+"Edit Workflow" = "Edit Workflow";
+
+/* style validation error message for expected {type} */
+"Expected value of type “%@”" = "Expected value of type “%@”";
+
+/* word comparing color saturations */
+"Faded" = "Faded";
+
+/* Color sync profile load error */
+"Failed to set color sync profile (error %i)" = "Failed to set color sync profile (error %i)";
+
+/* Help window default title */
+"Help" = "Help";
+
+/* Hide hint label - password/passphrase prompt dialog */
+"Hide hint…" = "Hide hint…";
+
+/* generic color name for pattern colors */
+"Image" = "Image";
+
+/* word comparing color saturations */
+"Intense" = "Intense";
+
+/* launch services error */
+"Launch Services returned an error while opening URL %@: %@" = "Launch Services returned an error while opening URL %1$@: %2$@";
+
+/* button title */
+"Learn More" = "Learn More";
+
+/* word comparing color brightnesss */
+"Light" = "Light";
+
+/* preference bundle loading message format */
+"Loading %@..." = "Loading %@…";
+
+/* word comparing color saturations */
+"Mild" = "Mild";
+
+/* error recovery option */
+"More Info <error recovery>" = "More Info";
+
+/* script error string */
+"Must supply either a \"string\" or \"regular expression\" argument." = "Must supply either a “string” or “regular expression” argument.";
+
+/* field label - password prompt dialog - username or account name */
+"Name:" = "Name:";
+
+/* word comparing color brightnesss */
+"Near-black" = "Near-black";
+
+/* preferences panel button */
+"Next" = "Next";
+
+/* menu title */
+"No Actions Available" = "No Actions Available";
+
+/* error message when a script is missing */
+"No script found for the toolbar item with identifier \"%@\"." = "No script found for the toolbar item with identifier “%@”.";
+
+/* Alert message when sending feedback email fails */
+"No support email address configured in this application." = "No support email address configured in this application.";
+
+/* how many pages in document format for scrollview */
+"of %d" = "of %d";
+
+/* word comparing color brightnesss */
+"Off-white" = "Off-white";
+
+/* button title */
+"OK" = "OK";
+
+/* page prompt for multipage documents in scrollview */
+"Page" = "Page";
+
+/* dialog box title - password/passphrase prompt dialog */
+"Passphrase Prompt" = "Passphrase Prompt";
+
+/* field label - password prompt dialog - password/passphrase field */
+"Password:" = "Password:";
+
+/* alert title */
+"Preference changed" = "Preference changed";
+
+/* preferences panel button */
+"Previous" = "Previous";
+
+/* checkbox label - password prompt dialog - whether to store this passphrase in the user's keychain */
+"Remember in Keychain" = "Remember in Keychain";
+
+/* error recovery description for button title */
+"Report Error via Email" = "Report Error via Email";
+
+/* alert panel button
+   reset-to-defaults button title */
+"Reset" = "Reset";
+
+/* message text for reset-to-defaults alert */
+"Reset %@ preferences to their original values?" = "Reset %@ preferences to their original values?";
+
+/* reset-to-defaults button title */
+"Reset All" = "Reset All";
+
+/* message text for reset-to-defaults alert */
+"Reset all preferences and other settings to their original values?" = "Reset all preferences and other settings to their original values?";
+
+/* message text for reset-to-defaults alert */
+"Reset all preferences to their original values?" = "Reset all preferences to their original values?";
+
+/* Alert title when restoring configuration settings to default state */
+"Restore default configuration?" = "Restore default configuration?";
+
+/* button title */
+"Retry" = "Retry";
+
+/* reset-to-defaults button tooltip */
+"Return all settings to default values" = "Return all settings to default values";
+
+/* reset-to-defaults button tooltip */
+"Return settings in this pane to default values" = "Return settings in this pane to default values";
+
+/* word comparing color saturations */
+"Rich" = "Rich";
+
+/* error title when a script is missing */
+"Script Not Found" = "Script Not Found";
+
+/* default search mode menu item */
+"Search" = "Search";
+
+/* context control tooltip */
+"Shortcuts for commonly used actions" = "Shortcuts for commonly used actions";
+
+/* preferences panel button */
+"Show All" = "Show All";
+
+/* Show hint label - password/passphrase prompt dialog */
+"Show hint…" = "Show hint…";
+
+/* word comparing color brightnesss */
+"Smokey" = "Smokey";
+
+/* Contents of popup in regular expression find options */
+"Subexpression #%d" = "Subexpression #%d";
+
+/* Automator Workflow loading error */
+"The Automator Workflow \"%@\" could not be opened." = "The Automator Workflow “%@” could not be opened.";
+
+/* Automator Workflow execute error */
+"The Automator Workflow \"%@\" could not complete." = "The Automator Workflow “%@” could not complete.";
+
+/* script execute error */
+"The script \"%@\" could not complete." = "The script “%@” could not complete.";
+
+/* script loading error */
+"The script file \"%@\" could not be opened." = "The script file “%@” could not be opened.";
+
+/* launch services error */
+"Unable to launch URL %@" = "Unable to launch URL %@";
+
+/* error description */
+"Unable to lock document." = "Unable to lock document.";
+
+/* error description */
+"Unable to move document." = "Unable to move document.";
+
+/* error description */
+"Unable to save document." = "Unable to save document.";
+
+/* Alert title when sending feedback email fails */
+"Unable to send feedback email." = "Unable to send feedback email.";
+
+/* error description */
+"Unable to unlock document." = "Unable to unlock document.";
+
+/* style validation error message for {key} */
+"Unexpected value for key “%@”" = "Unexpected value for key “%@”";
+
+/* word comparing color saturations */
+"Washed-out" = "Washed-out";
+

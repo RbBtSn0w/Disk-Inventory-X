@@ -1,11 +1,9 @@
-// Copyright 1997-2005 Omni Development, Inc.  All rights reserved.
+// Copyright 1997-2019 Omni Development, Inc. All rights reserved.
 //
 // This software may only be used and reproduced according to the
 // terms in the file OmniSourceLicense.html, which should be
 // distributed with this project and can also be found at
 // <http://www.omnigroup.com/developer/sourcecode/sourcelicense/>.
-//
-// $Header: svn+ssh://source.omnigroup.com/Source/svn/Omni/tags/OmniSourceRelease/2008-09-09/OmniGroup/Frameworks/OmniAppKit/OpenStepExtensions.subproj/NSTableView-OAColumnConfigurationExtensions.h 68913 2005-10-03 19:36:19Z kc $
 
 #import <AppKit/NSTableView.h>
 #import <AppKit/NSNibDeclarations.h>
@@ -26,8 +24,9 @@
 @end
 
 
-// These are all optional
-@interface NSObject (OATableViewColumnConfigurationDataSource)
+@protocol OATableViewColumnConfigurationDataSource <NSTableViewDataSource>
+
+@optional
 
 - (NSArray *)tableViewDefaultColumnIdentifiers:(NSTableView *)tableView;
     // Implementation of this method is required to enable the user-column-configuration feature. The rest are optional.

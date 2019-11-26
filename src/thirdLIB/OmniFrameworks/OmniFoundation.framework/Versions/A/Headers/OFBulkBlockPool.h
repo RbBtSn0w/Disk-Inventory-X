@@ -1,11 +1,9 @@
-// Copyright 1998-2005, 2007-2008 Omni Development, Inc.  All rights reserved.
+// Copyright 1998-2019 Omni Development, Inc. All rights reserved.
 //
 // This software may only be used and reproduced according to the
 // terms in the file OmniSourceLicense.html, which should be
 // distributed with this project and can also be found at
 // <http://www.omnigroup.com/developer/sourcecode/sourcelicense/>.
-//
-// $Header: svn+ssh://source.omnigroup.com/Source/svn/Omni/tags/OmniSourceRelease/2008-09-09/OmniGroup/Frameworks/OmniFoundation/DataStructures.subproj/OFBulkBlockPool.h 102946 2008-07-16 20:22:03Z wiml $
 
 #import <OmniFoundation/OFObject.h>
 
@@ -37,7 +35,7 @@ typedef struct _OFBulkBlockPool {
     OFByte *freeList; // A cache of the freeList of the current page
     OFBulkBlockPage *currentPage;
     OFBulkBlockPage **pages;
-    unsigned int pageCount;
+    size_t pageCount;
     size_t blockSize;
     size_t allocationSize; // blockSize rounded up to a multiple of sizeof(unsigned int)
 } OFBulkBlockPool;

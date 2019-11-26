@@ -1,15 +1,15 @@
-// Copyright 1997-2005, 2008 Omni Development, Inc.  All rights reserved.
+// Copyright 1997-2019 Omni Development, Inc. All rights reserved.
 //
 // This software may only be used and reproduced according to the
 // terms in the file OmniSourceLicense.html, which should be
 // distributed with this project and can also be found at
 // <http://www.omnigroup.com/developer/sourcecode/sourcelicense/>.
-//
-// $Header: svn+ssh://source.omnigroup.com/Source/svn/Omni/tags/OmniSourceRelease/2008-09-09/OmniGroup/Frameworks/OmniFoundation/OFCharacterScanner.h 102919 2008-07-16 05:11:43Z wiml $
 
 #import <Foundation/NSObject.h>
 
 #import <Foundation/NSString.h> // For unichar
+#import <OmniBase/OBObject.h> // For -debugDictionary
+#import <OmniBase/macros.h>
 #import <OmniFoundation/CFString-OFExtensions.h>
 #import <OmniFoundation/OFCharacterSet.h>
 
@@ -17,6 +17,7 @@
 
 @interface OFCharacterScanner : NSObject
 {
+    // These are used in the OWDataStreamScanner subclass
     NSUInteger rewindMarkOffsets[OFMaximumRewindMarks]; // rewindMarkOffsets[0] is always the earliest mark, by definition
     unsigned short rewindMarkCount;
     NSUInteger firstNonASCIIOffset;
@@ -26,8 +27,6 @@
     unichar *scanLocation;	// Pointer to next unichar
     unichar *scanEnd;		// Pointer to position after end of valid characters
     NSUInteger inputStringPosition;	// This is the position (in a possibly notional string buffer) of the first character in inputBuffer
-    BOOL freeInputBuffer;	// Whether we should deallocate inputBuffer when we're done with it
-    OFCaseConversionBuffer caseBuffer;
 }
 
 - init;
@@ -48,8 +47,6 @@
 /* Used by subclasses to implement the above */
 - (BOOL)fetchMoreDataFromString:(NSString *)inputString;
 - (BOOL)fetchMoreDataFromCharacters:(unichar *)characters length:(NSUInteger)length offset:(NSUInteger)offset freeWhenDone:(BOOL)doFreeWhenDone;
-// #warning the following method is obsolete; remove all references and delete it
-// - (BOOL)fetchMoreDataFromCharacters:(unichar *)characters length:(unsigned int)length freeWhenDone:(BOOL)doFreeWhenDone;
 
 - (unichar)peekCharacter;
 - (void)skipPeekedCharacter;
@@ -61,15 +58,20 @@
 - (void)rewindToMark;
 - (void)discardRewindMark;
 
+- (BOOL)hasData;
+
 - (NSUInteger)scanLocation;
 - (void)setScanLocation:(NSUInteger)aLocation;
-- (void)skipCharacters:(int)anOffset;
+- (void)skipCharacters:(NSUInteger)anOffset;
 
 - (BOOL)hasScannedNonASCII;  // returns YES if scanner has passed any non-ASCII characters
 
 - (BOOL)scanUpToCharacter:(unichar)aCharacter;
+- (BOOL)scanUpToCharacterInOFCharacterSet:(OFCharacterSet *)delimiterBitmapRep;
+- (BOOL)scanUpToCharacterNotInOFCharacterSet:(OFCharacterSet *)memberBitmapRep;
 - (BOOL)scanUpToCharacterInSet:(NSCharacterSet *)delimiterCharacterSet;
 - (BOOL)scanUpToString:(NSString *)delimiterString;
+- (BOOL)scanUpToString:(NSString *)delimiterString skip:(BOOL)shouldSkip;
 - (BOOL)scanUpToStringCaseInsensitive:(NSString *)delimiterString;
 
 // NB: Most delimited-token-reading functions will return nil if there is a zero-length token.
@@ -86,6 +88,7 @@
     // Relatively slow!  Inverts tokenSet and calls -readFullTokenWithDelimiters:
 - (NSString *)readLine;
 - (NSString *)readCharacterCount:(NSUInteger)count;
+- (NSString *)readRemainingBufferedCharacters;
 - (unsigned int)scanHexadecimalNumberMaximumDigits:(unsigned int)maximumDigits;
 - (unsigned int)scanUnsignedIntegerMaximumDigits:(unsigned int)maximumDigits;
 - (int)scanIntegerMaximumDigits:(unsigned int)maximumDigits;
@@ -215,7 +218,7 @@ scannerScanUpToCharacterInSet(OFCharacterScanner *scanner, NSCharacterSet *delim
 
     if (!scannerHasData(scanner))
         return NO;
-    delimiterOFCharacterSet = [[[OFCharacterSet alloc] initWithCharacterSet:delimiterCharacterSet] autorelease];
+    delimiterOFCharacterSet = OB_AUTORELEASE([[OFCharacterSet alloc] initWithCharacterSet:delimiterCharacterSet]);
     return scannerScanUpToCharacterInOFCharacterSet(scanner, delimiterOFCharacterSet);
 }
 

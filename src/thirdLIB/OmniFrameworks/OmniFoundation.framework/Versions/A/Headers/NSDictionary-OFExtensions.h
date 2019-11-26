@@ -1,29 +1,36 @@
-// Copyright 1997-2006, 2008 Omni Development, Inc.  All rights reserved.
+// Copyright 1997-2019 Omni Development, Inc. All rights reserved.
 //
 // This software may only be used and reproduced according to the
 // terms in the file OmniSourceLicense.html, which should be
 // distributed with this project and can also be found at
 // <http://www.omnigroup.com/developer/sourcecode/sourcelicense/>.
-//
-// $Header: svn+ssh://source.omnigroup.com/Source/svn/Omni/tags/OmniSourceRelease/2008-09-09/OmniGroup/Frameworks/OmniFoundation/OpenStepExtensions.subproj/NSDictionary-OFExtensions.h 104396 2008-08-27 20:03:52Z wiml $
 
 #import <Foundation/NSDictionary.h>
-
-#import <OmniFoundation/OFDictionaryInitialization.h>
+#import <Foundation/NSSet.h>
 
 #if !defined(TARGET_OS_IPHONE) || !TARGET_OS_IPHONE
 #import <Foundation/NSGeometry.h> // For NSPoint, NSSize, and NSRect
-#define OmniFoundation_NSDictionary_NSGeometry_Extensions
+#else
+#import <CoreGraphics/CGGeometry.h>
 #endif
 
-@interface NSDictionary (OFExtensions)
+@class NSMutableArray;
 
-- (NSDictionary *)dictionaryWithObject:(id)anObj forKey:(NSString *)key;
+@interface NSDictionary<__covariant KeyType, __covariant ObjectType> (OFExtensions)
+
+- (NSDictionary *)dictionaryWithPossiblyRemovedObject:(ObjectType)anObj forKey:(NSString *)key;
+- (NSDictionary *)dictionaryWithObject:(ObjectType)anObj forKey:(NSString *)key;
+- (NSDictionary *)dictionaryWithObjectRemovedForKey:(NSString *)key;
 - (NSDictionary *)dictionaryByAddingObjectsFromDictionary:(NSDictionary *)otherDictionary;
 
-- (id)anyObject;
-- (NSDictionary *)elementsAsInstancesOfClass:(Class)aClass withContext:(id)context;
+- (ObjectType)anyObject;
 - (NSString *)keyForObjectEqualTo:(id)anObj;
+
+- (NSString *)stringForKey:(NSString *)key defaultValue:(NSString *)defaultValue;
+- (NSString *)stringForKey:(NSString *)key;
+
+- (NSArray<NSString *> *)stringArrayForKey:(NSString *)key defaultValue:(NSArray<NSString *> *)defaultValue;
+- (NSArray<NSString *> *)stringArrayForKey:(NSString *)key;
 
 // ObjC methods to nil have undefined results for non-id values (though ints happen to currently work)
 - (float)floatForKey:(NSString *)key defaultValue:(float)defaultValue;
@@ -31,14 +38,12 @@
 - (double)doubleForKey:(NSString *)key defaultValue:(double)defaultValue;
 - (double)doubleForKey:(NSString *)key;
 
-#ifdef OmniFoundation_NSDictionary_NSGeometry_Extensions
-- (NSPoint)pointForKey:(NSString *)key defaultValue:(NSPoint)defaultValue;
-- (NSPoint)pointForKey:(NSString *)key;
-- (NSSize)sizeForKey:(NSString *)key defaultValue:(NSSize)defaultValue;
-- (NSSize)sizeForKey:(NSString *)key;
-- (NSRect)rectForKey:(NSString *)key defaultValue:(NSRect)defaultValue;
-- (NSRect)rectForKey:(NSString *)key;
-#endif
+- (CGPoint)pointForKey:(NSString *)key defaultValue:(CGPoint)defaultValue;
+- (CGPoint)pointForKey:(NSString *)key;
+- (CGSize)sizeForKey:(NSString *)key defaultValue:(CGSize)defaultValue;
+- (CGSize)sizeForKey:(NSString *)key;
+- (CGRect)rectForKey:(NSString *)key defaultValue:(CGRect)defaultValue;
+- (CGRect)rectForKey:(NSString *)key;
 
 // Returns YES iff the value is YES, Y, yes, y, or 1.
 - (BOOL)boolForKey:(NSString *)key defaultValue:(BOOL)defaultValue;
@@ -53,6 +58,9 @@
 - (NSInteger)integerForKey:(NSString *)key defaultValue:(NSInteger)defaultValue;
 - (NSInteger)integerForKey:(NSString *)key;
 
+- (NSUInteger)unsignedIntegerForKey:(NSString *)key defaultValue:(NSInteger)defaultValue;
+- (NSUInteger)unsignedIntegerForKey:(NSString *)key;
+
 - (unsigned long long int)unsignedLongLongForKey:(NSString *)key defaultValue:(unsigned long long int)defaultValue;
 - (unsigned long long int)unsignedLongLongForKey:(NSString *)key;
 
@@ -60,15 +68,14 @@
 - (void)makeValuesPerformSelector:(SEL)sel;
 
     // This seems more convenient than having to write your own if statement a zillion times
-- (id)objectForKey:(NSString *)key defaultObject:(id)defaultObject;
+- (ObjectType)objectForKey:(KeyType)key defaultObject:(ObjectType)defaultObject;
 
-- (id)deepMutableCopy;
+- (NSMutableDictionary<KeyType,ObjectType> *)deepMutableCopy NS_RETURNS_RETAINED;
 
-- (NSDictionary *)deepCopyWithReplacementFunction:(id (*)(id, void *))funct context:(void *)context;
+- (NSArray<KeyType> *)copyKeys;
+- (NSMutableArray<KeyType> *)mutableCopyKeys;
 
-- (NSArray *) copyKeys;
-- (NSMutableArray *) mutableCopyKeys;
+- (NSSet<KeyType> *)copyKeySet;
+- (NSMutableSet<KeyType> *)mutableCopyKeySet;
 
 @end
-
-extern NSString * const OmniDictionaryElementNameKey;

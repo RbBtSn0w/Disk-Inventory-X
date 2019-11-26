@@ -1,15 +1,13 @@
-// Copyright 2008 Omni Development, Inc.  All rights reserved.
+// Copyright 2008-2019 Omni Development, Inc. All rights reserved.
 //
 // This software may only be used and reproduced according to the
 // terms in the file OmniSourceLicense.html, which should be
 // distributed with this project and can also be found at
 // <http://www.omnigroup.com/developer/sourcecode/sourcelicense/>.
-//
-// $Header: svn+ssh://source.omnigroup.com/Source/svn/Omni/tags/OmniSourceRelease/2008-09-09/OmniGroup/Frameworks/OmniFoundation/OpenStepExtensions.subproj/NSObject-OFAppleScriptExtensions.h 98771 2008-03-17 22:31:08Z kc $
 
 #import <Foundation/NSObject.h>
 
-@class NSArray, NSDictionary, NSScriptObjectSpecifier;
+@class NSAppleEventDescriptor, NSArray, NSDictionary, NSScriptObjectSpecifier;
 
 @interface NSObject (OFAppleScriptExtensions) 
 
@@ -25,8 +23,10 @@
 - (NSArray *)appleScriptExtraAttributeKeys; // implement to add extra keys for -appleScriptMakeProperties
 - (NSString *)appleScriptMakeProperties;
 - (NSString *)appleScriptMakeCommandAt:(NSString *)aLocationSpecifier;
-- (NSString *)appleScriptMakeCommandAt:(NSString *)aLocationSpecifier withIndent:(int)indent;
+- (NSString *)appleScriptMakeCommandAt:(NSString *)aLocationSpecifier withIndent:(NSInteger)indent;
 
 - (NSScriptObjectSpecifier *)objectSpecifierByProperty:(NSString *)propertyKey inRelation:(NSString *)myLocation toContainer:(NSObject *)myContainer;
+
+- (NSAppleEventDescriptor *)convertToAppleEventDescriptor:(NSError **)outError;
 
 @end

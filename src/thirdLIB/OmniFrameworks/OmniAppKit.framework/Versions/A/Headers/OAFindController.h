@@ -1,11 +1,9 @@
-// Copyright 1997-2005, 2008 Omni Development, Inc.  All rights reserved.
+// Copyright 1997-2019 Omni Development, Inc. All rights reserved.
 //
 // This software may only be used and reproduced according to the
 // terms in the file OmniSourceLicense.html, which should be
 // distributed with this project and can also be found at
 // <http://www.omnigroup.com/developer/sourcecode/sourcelicense/>.
-//
-// $Header: svn+ssh://source.omnigroup.com/Source/svn/Omni/tags/OmniSourceRelease/2008-09-09/OmniGroup/Frameworks/OmniAppKit/OAFindController.h 98221 2008-03-04 21:06:19Z kc $
 
 // OAFindController controls a simple find panel.
 
@@ -13,34 +11,14 @@
 // The find panel will search the OAFindControllerTarget indicated by the main window's delegate's -omniFindControllerTarget method:
 // - (id <OAFindControllerTarget>)omniFindControllerTarget;
 
-#import <OmniFoundation/OFObject.h>
+#import <AppKit/NSWindowController.h>
 
-@class NSButton, NSForm, NSWindow, NSMatrix, NSPopUpButton, NSTextField, NSBox, NSView;
-
-#import <AppKit/NSNibDeclarations.h> // For IBOutlet
 #import <OmniAppKit/OAFindControllerTargetProtocol.h>
 
-@interface OAFindController : OFObject
-{
-    IBOutlet NSWindow *findPanel;
-    IBOutlet NSForm *searchTextForm;
-    IBOutlet NSForm *replaceTextForm;
-    IBOutlet NSButton *ignoreCaseButton;
-    IBOutlet NSButton *wholeWordButton;
-    IBOutlet NSButton *findNextButton;
-    IBOutlet NSButton *findPreviousButton;
-    IBOutlet NSButton *replaceAllButton;
-    IBOutlet NSButton *replaceButton;
-    IBOutlet NSButton *replaceAndFindButton;
-    IBOutlet NSMatrix *findTypeMatrix;
-    IBOutlet NSPopUpButton *subexpressionPopUp;
-    IBOutlet NSButton *replaceInSelectionCheckbox;
-    IBOutlet NSBox *additionalControlsBox;
-    IBOutlet NSView *stringControlsView;
-    IBOutlet NSView *regularExpressionControlsView;
-    
-    id <OAFindPattern> currentPattern;
-}
+@interface OAFindController : NSWindowController
+
+
+@property (nonatomic) BOOL supportsRegularExpressions;
 
 // Menu actions
 
@@ -68,6 +46,6 @@
 - (NSString *)restoreFindText;
 - (id <OAFindControllerTarget>)target;
 - (NSString *)enterSelectionString;
-- (unsigned int)enterSelectionStringLength;
+- (NSUInteger)enterSelectionStringLength;
 
 @end

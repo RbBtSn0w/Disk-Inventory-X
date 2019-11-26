@@ -1,11 +1,9 @@
-// Copyright 1997-2005, 2008 Omni Development, Inc.  All rights reserved.
+// Copyright 1997-2019 Omni Development, Inc. All rights reserved.
 //
 // This software may only be used and reproduced according to the
 // terms in the file OmniSourceLicense.html, which should be
 // distributed with this project and can also be found at
 // <http://www.omnigroup.com/developer/sourcecode/sourcelicense/>.
-//
-// $Header: svn+ssh://source.omnigroup.com/Source/svn/Omni/tags/OmniSourceRelease/2008-09-09/OmniGroup/Frameworks/OmniFoundation/DataStructures.subproj/OFCharacterSet.h 98770 2008-03-17 22:25:33Z kc $
 
 #import <Foundation/NSObject.h>
 
@@ -57,7 +55,7 @@
 
 static inline BOOL OFCharacterSetHasMember(OFCharacterSet *unicharSet, unichar character)
 {
-    return unicharSet->bitmapRep[character >> 3] & (((unsigned)1) << (character & 7));
+    return (unicharSet->bitmapRep[character >> 3] & (((unsigned)1) << (character & 7)))? YES : NO;
 }
 
 static inline void OFCharacterSetAddCharacter(OFCharacterSet *unicharSet, unichar character)

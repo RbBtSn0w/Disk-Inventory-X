@@ -1,28 +1,36 @@
-// Copyright 2006, 2008 Omni Development, Inc.  All rights reserved.
+// Copyright 2006-2019 Omni Development, Inc. All rights reserved.
 //
 // This software may only be used and reproduced according to the
 // terms in the file OmniSourceLicense.html, which should be
 // distributed with this project and can also be found at
 // <http://www.omnigroup.com/developer/sourcecode/sourcelicense/>.
-//
-// $Header: svn+ssh://source.omnigroup.com/Source/svn/Omni/tags/OmniSourceRelease/2008-09-09/OmniGroup/Frameworks/OmniAppKit/OpenStepExtensions.subproj/NSLayoutManager-OAExtensions.h 98223 2008-03-04 21:07:09Z kc $
 
+#import <Availability.h>
+
+#if defined(TARGET_OS_IPHONE) && TARGET_OS_IPHONE
+#import <UIKit/NSLayoutManager.h>
+#else
 #import <AppKit/NSLayoutManager.h>
+#endif
 
 @class NSTextAttachment;
 
 @interface NSLayoutManager (OAExtensions)
 
-- (NSTextContainer *)textContainerForCharacterIndex:(unsigned int)characterIndex;
+- (NSTextContainer *)textContainerForCharacterIndex:(NSUInteger)characterIndex;
 
-- (NSRect)attachmentFrameAtGlyphIndex:(unsigned int)glyphIndex;
-- (NSRect)attachmentFrameAtCharacterIndex:(unsigned int)charIndex;
-- (NSRect)attachmentRectForAttachmentAtCharacterIndex:(unsigned int)characterIndex inFrame:(NSRect)layoutFrame;
+- (CGRect)attachmentFrameAtGlyphIndex:(NSUInteger)glyphIndex; // in the text view's coordinate system
+- (CGRect)attachmentFrameAtCharacterIndex:(NSUInteger)charIndex; // in the text view's coordinate system
+- (CGRect)attachmentRectForAttachmentAtCharacterIndex:(NSUInteger)characterIndex inFrame:(CGRect)layoutFrame; // in the same coordinate system as layoutFrame, assuming no scaling
 
-- (NSTextAttachment *)attachmentAtPoint:(NSPoint)point inTextContainer:(NSTextContainer *)container;
+- (NSTextAttachment *)attachmentAtPoint:(CGPoint)point inTextContainer:(NSTextContainer *)container;
 
-- (float)totalHeightUsed;
-- (float)widthOfLongestLine;
+- (CGFloat)totalHeightUsed;
+#if defined(TARGET_OS_IPHONE) && TARGET_OS_IPHONE
++ (CGFloat)heightForAttributes:(NSDictionary *)attributes;
+#endif
+
+- (CGFloat)widthOfLongestLine;
 
 @end
 

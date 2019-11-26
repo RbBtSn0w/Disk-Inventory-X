@@ -1,0 +1,30 @@
+framework module OmniFoundation {
+    umbrella header "OmniFoundation.h"
+    
+    // Exclude headers that import other non-module headers
+    exclude header "OFXMLSignature.h"
+    exclude header "OFXMLError.h"
+
+    // Only needed in subclasses of OFBinding
+    exclude header "OFBinding-Subclass.h"
+    
+    export *
+    module * { export * }
+
+    explicit module TestSupport {
+        header "OFXMLParser-Internal.h"
+    }
+}
+
+explicit module OmniFoundation.Private {
+    header "OFCMS-Internal.h"
+    header "OFASN1-Internal.h"
+    
+    export *
+}
+
+
+module OmniFoundation.Swift {
+    header "OmniFoundation-Swift.h"
+    requires objc
+}

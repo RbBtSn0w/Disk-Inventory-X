@@ -1,27 +1,41 @@
-// Copyright 1997-2005, 2007-2008 Omni Development, Inc.  All rights reserved.
+// Copyright 1997-2019 Omni Development, Inc. All rights reserved.
 //
 // This software may only be used and reproduced according to the
 // terms in the file OmniSourceLicense.html, which should be
 // distributed with this project and can also be found at
 // <http://www.omnigroup.com/developer/sourcecode/sourcelicense/>.
-//
-// $Header: svn+ssh://source.omnigroup.com/Source/svn/Omni/tags/OmniSourceRelease/2008-09-09/OmniGroup/Frameworks/OmniAppKit/OpenStepExtensions.subproj/NSAttributedString-OAExtensions.h 103451 2008-07-29 19:10:40Z wiml $
+
+#import <Availability.h>
 
 #import <Foundation/NSAttributedString.h>
-#import <Foundation/NSGeometry.h> // For NSRect
+#import <OmniFoundation/OFGeometry.h>
+#import <OmniAppKit/OATextAttachment.h>
 
 @interface NSAttributedString (OAExtensions)
 
-+ (NSString *)attachmentString;
+@property(class,readonly) NSString *attachmentString;
 
-- (NSAttributedString *)initWithHTML:(NSString *)htmlString;
-- (NSString *)htmlString;
+- (BOOL)containsAttribute:(NSString *)attributeName;
+- (BOOL)containsAttribute:(NSString *)attributeName inRange:(NSRange)range;
+
+- (BOOL)containsAttachments;
+- (id)attachmentAtCharacterIndex:(NSUInteger)characterIndex;
+
+- (void)eachAttachmentInRange:(NSRange)range action:(void (^ NS_NOESCAPE)(NSRange attachmentRange, __kindof OATextAttachment *attachment, BOOL *stop))applier;
+- (void)eachAttachment:(void (^ NS_NOESCAPE)(NSRange attachmentRange, __kindof OATextAttachment *attachment, BOOL *stop))applier;
+
+#if OMNI_BUILDING_FOR_MAC
++ (NSAttributedString *)attributedStringWithImage:(NSImage *)anImage;
+
 - (NSData *)rtf;
 
-- (NSAttributedString *)substringWithEllipsisToWidth:(CGFloat)width;
+// The following three methods are for single line string rendering
+- (void)drawInRectangle:(NSRect)rectangle verticallyCentered:(BOOL)verticallyCenter;
+// These next two are conveniences for adding paragraph style attributes and make a mutableCopy of self
+- (void)drawInRectangle:(NSRect)rectangle alignment:(NSTextAlignment)alignment verticallyCentered:(BOOL)verticallyCenter;
+- (void)drawInRectangle:(NSRect)rectangle alignment:(NSTextAlignment)alignment lineBreakMode:(NSLineBreakMode)lineBreakMode verticallyCentered:(BOOL)verticallyCenter;
 
-- (void)drawInRectangle:(NSRect)rectangle alignment:(int)alignment verticallyCentered:(BOOL)verticallyCenter;
-
-- (void)drawCenteredShrinkingToFitInRect:(NSRect)rect;
+- (void)drawCenteredShrinkingToFitInRect:(CGRect)rect;
+#endif
 
 @end

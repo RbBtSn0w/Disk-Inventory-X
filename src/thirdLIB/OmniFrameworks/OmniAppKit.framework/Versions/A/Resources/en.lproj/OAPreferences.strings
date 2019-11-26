@@ -1,0 +1,9 @@
+/* Class = "NSWindow"; title = "Preferences"; ObjectID = "169"; */
+"169.title" = "Preferences";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Return settings in this pane to default values"; ObjectID = "173"; */
+"173.ibShadowedToolTip" = "Return settings in this pane to default values";
+
+/* Class = "NSButtonCell"; title = "Reset"; ObjectID = "174"; */
+"174.title" = "Reset";
+

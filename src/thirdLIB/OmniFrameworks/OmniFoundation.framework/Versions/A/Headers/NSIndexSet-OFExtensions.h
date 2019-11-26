@@ -1,14 +1,14 @@
-// Copyright 2008 Omni Development, Inc.  All rights reserved.
+// Copyright 2008-2019 Omni Development, Inc. All rights reserved.
 //
 // This software may only be used and reproduced according to the
 // terms in the file OmniSourceLicense.html, which should be
 // distributed with this project and can also be found at
 // <http://www.omnigroup.com/developer/sourcecode/sourcelicense/>.
 //
-// $Header: svn+ssh://source.omnigroup.com/Source/svn/Omni/tags/OmniSourceRelease/2008-09-09/OmniGroup/Frameworks/OmniFoundation/OpenStepExtensions.subproj/NSIndexSet-OFExtensions.h 103144 2008-07-22 02:53:09Z wiml $
-//
 
 #import <Foundation/NSIndexSet.h>
+
+@class NSSet;
 
 @interface NSIndexSet (OFExtensions)
 
@@ -19,6 +19,10 @@
 - (NSRange)rangeGreaterThanOrEqualToIndex:(NSUInteger)index;
 
 - (BOOL)isEmpty;
+
+- (NSSet *)setByPerformingBlock:(id (^)(NSUInteger index))blk;
+
+- (NSIndexSet *)complementOverRange:(NSRange)range;
 
 @end
 

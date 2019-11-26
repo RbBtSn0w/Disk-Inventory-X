@@ -1,0 +1,63 @@
+/* Class = "NSWindow"; title = "Find"; ObjectID = "5"; */
+"5.title" = "Find";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Find previous occurrence"; ObjectID = "11"; */
+"11.ibShadowedToolTip" = "Find previous occurrence";
+
+/* Class = "NSTextFieldCell"; title = "Find String:"; ObjectID = "89A-gB-vTa"; */
+"89A-gB-vTa.title" = "Find String:";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Find next occurrence"; ObjectID = "96"; */
+"96.ibShadowedToolTip" = "Find next occurrence";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "108"; */
+"108.title" = "OtherViews";
+
+/* Class = "NSMenuItem"; title = "Full match"; ObjectID = "109"; */
+"109.title" = "Full match";
+
+/* Class = "NSButtonCell"; title = "String"; ObjectID = "114"; */
+"114.title" = "String";
+
+/* Class = "NSButtonCell"; title = "Regular Expression"; ObjectID = "115"; */
+"115.title" = "Regular Expression";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "116"; */
+"116.title" = "Box";
+
+/* Class = "NSButtonCell"; title = "Previous"; ObjectID = "152"; */
+"152.title" = "Previous";
+
+/* Class = "NSButtonCell"; title = "Replace All"; ObjectID = "153"; */
+"153.title" = "Replace All";
+
+/* Class = "NSButtonCell"; title = "Replace & Find"; ObjectID = "154"; */
+"154.title" = "Replace & Find";
+
+/* Class = "NSButtonCell"; title = "Replace"; ObjectID = "155"; */
+"155.title" = "Replace";
+
+/* Class = "NSButtonCell"; title = "Next"; ObjectID = "156"; */
+"156.title" = "Next";
+
+/* Class = "NSTextFieldCell"; title = "Find Type:"; ObjectID = "157"; */
+"157.title" = "Find Type:";
+
+/* Class = "NSButtonCell"; title = "Replace All in selection only"; ObjectID = "158"; */
+"158.title" = "Replace All in selection only";
+
+/* Class = "NSTextFieldCell"; title = "Select or Replace:"; ObjectID = "160"; */
+"160.title" = "Select or Replace:";
+
+/* Class = "NSButtonCell"; title = "Ignore Case"; ObjectID = "161"; */
+"161.title" = "Ignore Case";
+
+/* Class = "NSButtonCell"; title = "Whole Word"; ObjectID = "162"; */
+"162.title" = "Whole Word";
+
+/* Class = "NSButtonCell"; title = "Radio"; ObjectID = "164"; */
+"164.title" = "Radio";
+
+/* Class = "NSTextFieldCell"; title = "Replace:"; ObjectID = "oed-0X-sHs"; */
+"oed-0X-sHs.title" = "Replace:";
+

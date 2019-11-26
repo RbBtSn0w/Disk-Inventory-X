@@ -1,16 +1,16 @@
-// Copyright 2003-2008 Omni Development, Inc.  All rights reserved.
+// Copyright 2003-2019 Omni Development, Inc. All rights reserved.
 //
 // This software may only be used and reproduced according to the
 // terms in the file OmniSourceLicense.html, which should be
 // distributed with this project and can also be found at
 // <http://www.omnigroup.com/developer/sourcecode/sourcelicense/>.
-//
-// $Header: svn+ssh://source.omnigroup.com/Source/svn/Omni/tags/OmniSourceRelease/2008-09-09/OmniGroup/Frameworks/OmniFoundation/XML/OFXMLString.h 102862 2008-07-15 05:14:37Z bungi $
 
 #import <OmniFoundation/OFObject.h>
 
 #import <CoreFoundation/CFString.h>
 #import <OmniFoundation/OFXMLWhitespaceBehavior.h>
+#import <OmniFoundation/OFXMLBuffer.h>
+#import <OmniBase/objc.h>
 
 @class NSMutableString, NSError;
 @class OFXMLElement, OFXMLDocument;
@@ -30,10 +30,10 @@
 
 - (NSString *) unquotedString;
 
-- (NSString *)createQuotedStringForDocument:(OFXMLDocument *)doc;
+- (NSString *)newQuotedStringForDocument:(OFXMLDocument *)doc;
 
 // Writing support called from OFXMLDocument
-- (BOOL)appendXML:(struct _OFXMLBuffer *)xml withParentWhiteSpaceBehavior:(OFXMLWhitespaceBehaviorType)parentBehavior document:(OFXMLDocument *)doc level:(unsigned int)level error:(NSError **)outError;
+- (BOOL)appendXML:(OFXMLBuffer)xml withParentWhiteSpaceBehavior:(OFXMLWhitespaceBehaviorType)parentBehavior document:(OFXMLDocument *)doc level:(unsigned int)level error:(NSError **)outError;
 
 @end
 
@@ -63,10 +63,9 @@
 #define OFXMLHTMLEntityMask (OFXMLGtEntityMask|OFXMLQuotEntityMask|(OFXMLCharacterFlagWriteCharacterEntity << OFXMLAposCharacterOptionsShift))
 #define OFXMLHTMLWithNewlinesEntityMask (OFXMLHTMLEntityMask|OFXMLNewlineEntityMask)
 
-extern NSString *OFXMLCreateStringInCFEncoding(NSString *sourceString, CFStringEncoding anEncoding);
-extern NSString *OFXMLCreateStringWithEntityReferencesInCFEncoding(NSString *sourceString, unsigned int entityMask, NSString *optionalNewlineString, CFStringEncoding anEncoding);
-extern NSString *OFXMLCreateParsedEntityString(NSString *sourceString);
+extern NSString *OFXMLCreateStringInCFEncoding(NSString *sourceString, CFStringEncoding anEncoding) NS_RETURNS_RETAINED;
+extern NSString *OFXMLCreateStringWithEntityReferencesInCFEncoding(NSString *sourceString, unsigned int entityMask, NSString *optionalNewlineString, CFStringEncoding anEncoding) NS_RETURNS_RETAINED;
+extern NSString *OFXMLCreateParsedEntityString(NSString *sourceString) NS_RETURNS_RETAINED;
 extern NSString *OFStringForEntityName(NSString *entityName);
 
-//extern NSString *OFCharacterDataFromXMLTree(CFXMLTreeRef aTree);
 extern NSString *OFCharacterDataFromElement(OFXMLElement *element);

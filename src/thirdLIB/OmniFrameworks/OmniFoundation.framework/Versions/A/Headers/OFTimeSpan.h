@@ -1,11 +1,9 @@
-// Copyright 2006-2007 Omni Development, Inc.  All rights reserved.
+// Copyright 2006-2019 Omni Development, Inc. All rights reserved.
 //
 // This software may only be used and reproduced according to the
 // terms in the file OmniSourceLicense.html, which should be
 // distributed with this project and can also be found at
 // <http://www.omnigroup.com/developer/sourcecode/sourcelicense/>.
-//
-// $Header: svn+ssh://source.omnigroup.com/Source/svn/Omni/tags/OmniSourceRelease/2008-09-09/OmniGroup/Frameworks/OmniFoundation/Formatters.subproj/OFTimeSpan.h 89466 2007-08-01 23:35:13Z kc $
 
 #import <Foundation/NSObject.h>
 
@@ -17,6 +15,7 @@
     struct {
         float years, months, weeks, days, hours, minutes, seconds;
     } _components;
+    BOOL elapsed;
 }
 
 - initWithTimeSpanFormatter:(OFTimeSpanFormatter *)aFormatter;
@@ -28,6 +27,7 @@
 - (void)setHours:(float)aValue;
 - (void)setMinutes:(float)aValue;
 - (void)setSeconds:(float)aValue;
+- (void)setElapsed:(BOOL)aBool;
 
 - (float)years;
 - (float)months;
@@ -36,9 +36,11 @@
 - (float)hours;
 - (float)minutes;
 - (float)seconds;
+- (BOOL)elapsed;
 
 - (float)floatValue;
 - (float)floatValueInSeconds;
+- (NSDateComponents *)dateComponentsValue;
 
 - (BOOL)isZero;
 

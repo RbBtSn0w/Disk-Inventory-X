@@ -1,11 +1,9 @@
-// Copyright 2000-2008 Omni Development, Inc.  All rights reserved.
+// Copyright 2000-2019 Omni Development, Inc. All rights reserved.
 //
 // This software may only be used and reproduced according to the
 // terms in the file OmniSourceLicense.html, which should be
 // distributed with this project and can also be found at
 // <http://www.omnigroup.com/developer/sourcecode/sourcelicense/>.
-//
-// $Header: svn+ssh://source.omnigroup.com/Source/svn/Omni/tags/OmniSourceRelease/2008-09-09/OmniGroup/Frameworks/OmniFoundation/OFUnicodeUtilities.h 102857 2008-07-15 04:22:17Z bungi $
 
 /* From the Unicode standard:
  * U+FFFD REPLACEMENT CHARACTER 
@@ -32,7 +30,7 @@ static inline enum OFIsSurrogate OFCharacterIsSurrogate(unichar ch)
      ** Since the common case is that a character is not a surrogate at all, we
      ** test for that first.
      */
-    if ((ch & 0xF800) == 0xD800) {
+    if (__builtin_expect((ch & 0xF800) == 0xD800, 0)) {
         if ((ch & 0x0400) == 0)
             return OFIsSurrogate_HighSurrogate;
         else

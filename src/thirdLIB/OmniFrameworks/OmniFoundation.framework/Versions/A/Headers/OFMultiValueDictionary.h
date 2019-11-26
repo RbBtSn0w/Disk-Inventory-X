@@ -1,48 +1,49 @@
-// Copyright 1997-2005, 2007-2008 Omni Development, Inc.  All rights reserved.
+// Copyright 1997-2019 Omni Development, Inc. All rights reserved.
 //
 // This software may only be used and reproduced according to the
 // terms in the file OmniSourceLicense.html, which should be
 // distributed with this project and can also be found at
 // <http://www.omnigroup.com/developer/sourcecode/sourcelicense/>.
-//
-// $Header: svn+ssh://source.omnigroup.com/Source/svn/Omni/tags/OmniSourceRelease/2008-09-09/OmniGroup/Frameworks/OmniFoundation/DataStructures.subproj/OFMultiValueDictionary.h 98770 2008-03-17 22:25:33Z kc $
 
 #import <OmniFoundation/OFObject.h>
+
 #import <CoreFoundation/CFDictionary.h>
+#import <OmniFoundation/OFUtilities.h>
 
 @class NSArray, NSEnumerator, NSMutableDictionary;
 
-@interface OFMultiValueDictionary : OFObject <NSCoding, NSMutableCopying>
-{
-    CFMutableDictionaryRef dictionary;
-    short dictionaryFlags;
-}
+@interface OFMultiValueDictionary <__covariant KeyType, __covariant ObjectType> : NSObject </*NSCoding,*/ NSCopying>
 
 - init;
-- initWithCaseInsensitiveKeys: (BOOL) caseInsensitivity;
-- initWithKeyCallBacks:(const CFDictionaryKeyCallBacks *)keyBehavior;  // D.I.
+- initWithCaseInsensitiveKeys:(BOOL)caseInsensitivity;
+- initWithKeyCallBacks:(const CFDictionaryKeyCallBacks *)keyBehavior;
 
-- (NSArray *)arrayForKey:(id)aKey;
-- (id)firstObjectForKey:(id)aKey;
-- (id)lastObjectForKey:(id)aKey;
-- (void)addObject:(id)anObject forKey:(id)aKey;
-- (void)addObjects:(NSArray *)moreObjects forKey:(id)aKey;
-- (void)addObjects:(NSArray *)manyObjects keyedBySelector:(SEL)aSelector;
-- (void)setObjects:(NSArray *)replacementObjects forKey:(id)aKey;
-- (void)insertObject:(id)anObject forKey:(id)aKey atIndex:(unsigned int)anIndex;
-- (BOOL)removeObject:(id)anObject forKey:(id)aKey;
-- (BOOL)removeObjectIdenticalTo:(id)anObject forKey:(id)aKey;
+- (NSArray<ObjectType> *)arrayForKey:(KeyType)aKey;
+- (ObjectType)firstObjectForKey:(KeyType)aKey;
+- (ObjectType)lastObjectForKey:(KeyType)aKey;
+- (void)addObject:(ObjectType)anObject forKey:(KeyType)aKey;
+- (void)addObjects:(NSArray<ObjectType> *)moreObjects forKey:(KeyType)aKey;
+- (void)addObjects:(NSArray<ObjectType> *)manyObjects keyedByBlock:(KeyType (^)(ObjectType object))keyBlock;
+- (void)setObjects:(NSArray<ObjectType> *)replacementObjects forKey:(KeyType)aKey;
+- (void)insertObject:(ObjectType)anObject forKey:(KeyType)aKey atIndex:(unsigned int)anIndex;
+- (BOOL)removeObject:(ObjectType)anObject forKey:(KeyType)aKey;
+- (BOOL)removeObjectIdenticalTo:(ObjectType)anObject forKey:(KeyType)aKey;
 - (void)removeAllObjects;
-- (NSEnumerator *)keyEnumerator;
-- (NSArray *)allKeys;
-- (NSArray *)allValues;
+- (NSEnumerator<KeyType> *)keyEnumerator;
+- (NSArray<KeyType> *)allKeys;
+- (NSArray<ObjectType> *)allValues;
 
-- (NSMutableDictionary *)dictionary;
+- (NSMutableDictionary<KeyType, NSArray<ObjectType> *> *)dictionary;
 
 @end
 
 #import <Foundation/NSArray.h>
 @interface NSArray (OFMultiValueDictionary)
-- (OFMultiValueDictionary *)groupBySelector:(SEL)aSelector;
-- (OFMultiValueDictionary *)groupBySelector:(SEL)aSelector withObject:(id)anObject;
+- (OFMultiValueDictionary *)groupByKeyBlock:(OFObjectToObjectBlock)keyBlock;
+- (OFMultiValueDictionary *)groupByKeyBlock:(id (^)(id object, id arg))keyBlock withObject:(id)argument;
+@end
+
+@interface NSString (OFMultiValueDictionary)
+- (void)parseQueryString:(void (^)(NSString *decodedName, NSString *decodedValue, BOOL *stop))handlePair;
+- (OFMultiValueDictionary *)parametersFromQueryString;
 @end

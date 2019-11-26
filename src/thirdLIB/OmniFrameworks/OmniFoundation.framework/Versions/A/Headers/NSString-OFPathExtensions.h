@@ -1,11 +1,9 @@
-// Copyright 1999-2006, 2008 Omni Development, Inc.  All rights reserved.
+// Copyright 1999-2019 Omni Development, Inc. All rights reserved.
 //
 // This software may only be used and reproduced according to the
 // terms in the file OmniSourceLicense.html, which should be
 // distributed with this project and can also be found at
 // <http://www.omnigroup.com/developer/sourcecode/sourcelicense/>.
-//
-// $Header: svn+ssh://source.omnigroup.com/Source/svn/Omni/tags/OmniSourceRelease/2008-09-09/OmniGroup/Frameworks/OmniFoundation/OpenStepExtensions.subproj/NSString-OFPathExtensions.h 104581 2008-09-06 21:18:23Z kc $
 
 #import <Foundation/NSString.h>
 
@@ -21,7 +19,7 @@
 - (NSString *)relativePathToFilename:(NSString *)otherFilename;
     // Given absolute file paths like "/applications/omniweb/screenshots/index.html" and "/applications/omniweb/faq/content.html", returns a relative path, "../../faq/content.html". If no relative path is possible (i.e. the paths have no common root), returns otherFilename.
 
-- (NSString *)hfsPathFromPOSIXPath;
+- (void)splitName:(NSString * OB_AUTORELEASING *)outName andCounter:(NSUInteger *)outCounter;
 
 // Utility routine also used by -[NSFileManager(OFExtensions) path:isAncestorOfPath:relativePath:]. You can call this directly, but you can also just call -commonRootPathOfFilename:andFilename:.
 NSArray *OFCommonRootPathComponents(NSString *filename, NSString *otherFilename, NSArray **componentsLeft, NSArray **componentsRight);

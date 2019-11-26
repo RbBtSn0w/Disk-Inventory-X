@@ -1,26 +1,30 @@
-// Copyright 2003-2008 Omni Development, Inc.  All rights reserved.
+// Copyright 2003-2019 Omni Development, Inc. All rights reserved.
 //
 // This software may only be used and reproduced according to the
 // terms in the file OmniSourceLicense.html, which should be
 // distributed with this project and can also be found at
 // <http://www.omnigroup.com/developer/sourcecode/sourcelicense/>.
-//
-// $Header: svn+ssh://source.omnigroup.com/Source/svn/Omni/tags/OmniSourceRelease/2008-09-09/OmniGroup/Frameworks/OmniFoundation/DataStructures.subproj/OFPoint.h 98221 2008-03-04 21:06:19Z kc $
 
 #import <Foundation/NSObject.h>
+
+#if !defined(TARGET_OS_IPHONE) || !TARGET_OS_IPHONE
 #import <Foundation/NSGeometry.h>
+#else
+#import <CoreGraphics/CGGeometry.h>
+#endif
 
-@interface OFPoint : NSObject <NSCopying, NSCoding>
-{
-    NSPoint _value;
-}
+NS_ASSUME_NONNULL_BEGIN
 
-+ (OFPoint *)pointWithPoint:(NSPoint)point;
+@class NSMutableDictionary, NSDictionary;
 
-- initWithPoint:(NSPoint)point;
+@interface OFPoint : NSObject <NSCopying /*, NSCoding*/>
+
++ (OFPoint *)pointWithPoint:(CGPoint)point;
+
+- initWithPoint:(CGPoint)point;
 - initWithString:(NSString *)string;
 
-- (NSPoint)point;
+@property(nonatomic,readonly) CGPoint point;
 
 - (NSMutableDictionary *)propertyListRepresentation;
 + (OFPoint *)pointFromPropertyListRepresentation:(NSDictionary *)dict;
@@ -29,3 +33,6 @@
 
 // Value transformer
 extern NSString * const OFPointToPropertyListTransformerName;
+
+NS_ASSUME_NONNULL_END
+

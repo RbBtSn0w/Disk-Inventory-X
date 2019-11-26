@@ -1,38 +1,20 @@
-// Copyright 1997-2008 Omni Development, Inc.  All rights reserved.
+// Copyright 1997-2019 Omni Development, Inc. All rights reserved.
 //
 // This software may only be used and reproduced according to the
 // terms in the file OmniSourceLicense.html, which should be
 // distributed with this project and can also be found at
 // <http://www.omnigroup.com/developer/sourcecode/sourcelicense/>.
-//
-// $Header: svn+ssh://source.omnigroup.com/Source/svn/Omni/tags/OmniSourceRelease/2008-09-09/OmniGroup/Frameworks/OmniFoundation/CoreFoundationExtensions/CFDictionary-OFExtensions.h 103920 2008-08-11 20:16:00Z wiml $
 
 #import <CoreFoundation/CFDictionary.h>
 #import <Foundation/NSObjCRuntime.h>  // For NSInteger, etc.
+#import <OmniFoundation/OFCFCallbacks.h>
+#import <OmniBase/objc.h>
 
 extern const CFDictionaryKeyCallBacks OFCaseInsensitiveStringKeyDictionaryCallbacks;
 
-
-extern const CFDictionaryKeyCallBacks    OFNonOwnedPointerDictionaryKeyCallbacks;
-extern const CFDictionaryValueCallBacks  OFNonOwnedPointerDictionaryValueCallbacks;
-
-extern const CFDictionaryKeyCallBacks    OFPointerEqualObjectDictionaryKeyCallbacks;
-
-extern const CFDictionaryKeyCallBacks    OFIntegerDictionaryKeyCallbacks;
-extern const CFDictionaryValueCallBacks  OFIntegerDictionaryValueCallbacks;
-
-extern const CFDictionaryKeyCallBacks    OFNSObjectDictionaryKeyCallbacks;
-extern const CFDictionaryKeyCallBacks    OFNSObjectCopyDictionaryKeyCallbacks;
-extern const CFDictionaryValueCallBacks  OFNSObjectDictionaryValueCallbacks;
-
-
 // Convenience functions
 @class NSMutableDictionary;
-extern NSMutableDictionary *OFCreateCaseInsensitiveKeyMutableDictionary(void);
-
-// Applier functions
-extern void OFPerformSelectorOnKeyApplierFunction(const void *key, const void *value, void *context);   // context==SEL
-extern void OFPerformSelectorOnValueApplierFunction(const void *key, const void *value, void *context); // context==SEL
+extern NSMutableDictionary *OFCreateCaseInsensitiveKeyMutableDictionary(void) NS_RETURNS_RETAINED;
 
 // Conveniences for when the value is an integer
 // Making these inline functions (rather than macros) means that the compiler will handle any integer width conversions for us
@@ -103,6 +85,16 @@ static inline Boolean OFCFDictionaryContainsUIntegerKey(CFDictionaryRef theDict,
     return CFDictionaryContainsKey(theDict, (const void *)key);
 }
 
+static inline void OFCFDictionaryAddValueForInteger(CFMutableDictionaryRef theDict, intptr_t key, const void *value)
+{
+    CFDictionaryAddValue(theDict, (const void *)key, value);
+}
+
+static inline void OFCFDictionaryAddValueForUInteger(CFMutableDictionaryRef theDict, uintptr_t key, const void *value)
+{
+    CFDictionaryAddValue(theDict, (const void *)key, value);
+}
+
 static inline void OFCFDictionarySetValueForInteger(CFMutableDictionaryRef theDict, intptr_t key, const void *value)
 {
     CFDictionarySetValue(theDict, (const void *)key, value);
@@ -111,6 +103,36 @@ static inline void OFCFDictionarySetValueForInteger(CFMutableDictionaryRef theDi
 static inline void OFCFDictionarySetValueForUInteger(CFMutableDictionaryRef theDict, uintptr_t key, const void *value)
 {
     CFDictionarySetValue(theDict, (const void *)key, value);
+}
+
+static inline const void *OFCFDictionaryGetValueForInteger(CFMutableDictionaryRef theDict, intptr_t key)
+{
+    return CFDictionaryGetValue(theDict, (const void *)key);
+}
+
+static inline const void *OFCFDictionaryGetValueForUInteger(CFMutableDictionaryRef theDict, uintptr_t key)
+{
+    return CFDictionaryGetValue(theDict, (const void *)key);
+}
+
+static inline Boolean OFCFDictionaryGetValueForIntegerIfPresent(CFMutableDictionaryRef theDict, intptr_t key, const void **value)
+{
+    return CFDictionaryGetValueIfPresent(theDict, (const void *)key, value);
+}
+
+static inline Boolean OFCFDictionaryGetValueForUIntegerIfPresent(CFMutableDictionaryRef theDict, uintptr_t key, const void **value)
+{
+    return CFDictionaryGetValueIfPresent(theDict, (const void *)key, value);
+}
+
+static inline void OFCFDictionaryRemoveValueForInteger(CFMutableDictionaryRef theDict, intptr_t key)
+{
+    CFDictionaryRemoveValue(theDict, (const void *)key);
+}
+
+static inline void OFCFDictionaryRemoveValueForUInteger(CFMutableDictionaryRef theDict, uintptr_t key)
+{
+    CFDictionaryRemoveValue(theDict, (const void *)key);
 }
 
 

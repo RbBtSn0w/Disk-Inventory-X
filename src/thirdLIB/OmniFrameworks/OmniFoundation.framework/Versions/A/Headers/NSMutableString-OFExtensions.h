@@ -1,11 +1,9 @@
-// Copyright 1997-2008 Omni Development, Inc.  All rights reserved.
+// Copyright 1997-2019 Omni Development, Inc. All rights reserved.
 //
 // This software may only be used and reproduced according to the
 // terms in the file OmniSourceLicense.html, which should be
 // distributed with this project and can also be found at
 // <http://www.omnigroup.com/developer/sourcecode/sourcelicense/>.
-//
-// $Header: svn+ssh://source.omnigroup.com/Source/svn/Omni/tags/OmniSourceRelease/2008-09-09/OmniGroup/Frameworks/OmniFoundation/OpenStepExtensions.subproj/NSMutableString-OFExtensions.h 98770 2008-03-17 22:25:33Z kc $
 
 #import <Foundation/NSString.h>
 #import <OmniBase/OBUtilities.h> // for OB_DEPRECATED_ATTRIBUTE
@@ -19,9 +17,7 @@
 - (BOOL)replaceAllOccurrencesOfRegularExpressionString:(NSString *)matchString withString:(NSString *)newString;
 - (void)replaceAllLineEndingsWithString:(NSString *)newString;
 
-- (void)appendCharacter:(unsigned int)aCharacter;
-- (void)appendStrings: (NSString *)first, ...;
-
-- (void)removeSurroundingWhitespace OB_DEPRECATED_ATTRIBUTE;
+- (void)appendLongCharacter:(UnicodeScalarValue)aCharacter; // This handles >16 bits characters, encoding with with surrogate pairs
+- (void)appendStrings: (NSString *)first, ... NS_REQUIRES_NIL_TERMINATION;
 
 @end

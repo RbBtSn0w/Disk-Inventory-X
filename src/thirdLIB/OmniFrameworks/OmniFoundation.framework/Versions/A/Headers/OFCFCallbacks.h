@@ -1,11 +1,9 @@
-// Copyright 2002-2008 Omni Development, Inc.  All rights reserved.
+// Copyright 2002-2019 Omni Development, Inc. All rights reserved.
 //
 // This software may only be used and reproduced according to the
 // terms in the file OmniSourceLicense.html, which should be
 // distributed with this project and can also be found at
 // <http://www.omnigroup.com/developer/sourcecode/sourcelicense/>.
-//
-// $Header: svn+ssh://source.omnigroup.com/Source/svn/Omni/tags/OmniSourceRelease/2008-09-09/OmniGroup/Frameworks/OmniFoundation/CoreFoundationExtensions/OFCFCallbacks.h 98560 2008-03-12 17:28:00Z bungi $
 
 #import <CoreFoundation/CFString.h>
 
@@ -15,7 +13,7 @@ extern const void *OFNSObjectRetain(CFAllocatorRef allocator, const void *value)
 extern const void *OFNSObjectRetainCopy(CFAllocatorRef allocator, const void *value);
 extern void        OFNSObjectRelease(CFAllocatorRef allocator, const void *value);
 extern CFStringRef OFNSObjectCopyDescription(const void *value);
-extern CFStringRef OFNSObjectCopyShortDescription(const void *value);
+// See // See OBObject.h for OBNSObjectCopyShortDescription
 extern Boolean     OFNSObjectIsEqual(const void *value1, const void *value2);
 extern CFHashCode  OFNSObjectHash(const void *value1);
 
@@ -31,5 +29,31 @@ extern CFStringRef OFPointerCopyDescription(const void *ptr);
 extern CFStringRef OFIntegerCopyDescription(const void *ptr);
 extern CFStringRef OFUnsignedIntegerCopyDescription(const void *ptr);
 
-extern Boolean     OFCaseInsensitiveStringIsEqual(const void *value1, const void *value2);
-extern CFHashCode  OFCaseInsensitiveStringHash(const void *value);
+// Collection callback structs using the callbacks above
+#import <CoreFoundation/CFArray.h>
+extern const CFArrayCallBacks OFNonOwnedPointerArrayCallbacks;
+extern const CFArrayCallBacks OFNSObjectArrayCallbacks;
+extern const CFArrayCallBacks OFPointerEqualObjectArrayCallbacks;
+extern const CFArrayCallBacks OFIntegerArrayCallbacks;
+
+#import <CoreFoundation/CFDictionary.h>
+extern const CFDictionaryKeyCallBacks    OFNonOwnedPointerDictionaryKeyCallbacks;
+extern const CFDictionaryValueCallBacks  OFNonOwnedPointerDictionaryValueCallbacks;
+
+extern const CFDictionaryKeyCallBacks    OFPointerEqualObjectDictionaryKeyCallbacks;
+
+extern const CFDictionaryKeyCallBacks    OFIntegerDictionaryKeyCallbacks;
+extern const CFDictionaryKeyCallBacks    OFUnsignedIntegerDictionaryKeyCallbacks;
+extern const CFDictionaryValueCallBacks  OFIntegerDictionaryValueCallbacks;
+extern const CFDictionaryValueCallBacks  OFUnsignedIntegerDictionaryValueCallbacks;
+
+extern const CFDictionaryKeyCallBacks    OFNSObjectDictionaryKeyCallbacks;
+extern const CFDictionaryKeyCallBacks    OFNSObjectCopyDictionaryKeyCallbacks;
+extern const CFDictionaryValueCallBacks  OFNSObjectDictionaryValueCallbacks;
+
+#import <CoreFoundation/CFSet.h>
+extern const CFSetCallBacks OFNonOwnedPointerSetCallbacks;
+extern const CFSetCallBacks OFIntegerSetCallbacks;
+extern const CFSetCallBacks OFPointerEqualObjectSetCallbacks;
+extern const CFSetCallBacks OFNonOwnedObjectCallbacks;
+extern const CFSetCallBacks OFNSObjectSetCallbacks;

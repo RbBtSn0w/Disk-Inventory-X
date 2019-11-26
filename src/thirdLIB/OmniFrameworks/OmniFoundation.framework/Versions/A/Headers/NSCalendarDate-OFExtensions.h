@@ -1,11 +1,12 @@
-// Copyright 1997-2005, 2008 Omni Development, Inc.  All rights reserved.
+// Copyright 2010-2019 Omni Development, Inc. All rights reserved.
 //
 // This software may only be used and reproduced according to the
 // terms in the file OmniSourceLicense.html, which should be
 // distributed with this project and can also be found at
 // <http://www.omnigroup.com/developer/sourcecode/sourcelicense/>.
-//
-// $Header: svn+ssh://source.omnigroup.com/Source/svn/Omni/tags/OmniSourceRelease/2008-09-09/OmniGroup/Frameworks/OmniFoundation/OpenStepExtensions.subproj/NSCalendarDate-OFExtensions.h 104581 2008-09-06 21:18:23Z kc $
+
+// NSCalendarDate is deprecated.  Leaving this here for a while so we can refer to it as we convert any remaining uses to NSCalendar/NSDateComponents/NSDate/NSLocale
+#if 0
 
 #import <Foundation/NSCalendarDate.h>
 #include <sys/types.h>
@@ -28,3 +29,4 @@
 - (NSCalendarDate *)dateByRoundingToHourOfDay:(int)desiredHour minute:(int)desiredMinute;
 
 @end
+#endif

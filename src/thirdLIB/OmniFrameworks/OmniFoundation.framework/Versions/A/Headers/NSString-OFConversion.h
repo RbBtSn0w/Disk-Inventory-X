@@ -1,15 +1,14 @@
-// Copyright 1997-2008 Omni Development, Inc.  All rights reserved.
+// Copyright 1997-2019 Omni Development, Inc. All rights reserved.
 //
 // This software may only be used and reproduced according to the
 // terms in the file OmniSourceLicense.html, which should be
 // distributed with this project and can also be found at
 // <http://www.omnigroup.com/developer/sourcecode/sourcelicense/>.
-//
-// $Header: svn+ssh://source.omnigroup.com/Source/svn/Omni/tags/OmniSourceRelease/2008-09-09/OmniGroup/Frameworks/OmniFoundation/OpenStepExtensions.subproj/NSString-OFConversion.h 104167 2008-08-19 22:50:52Z wiml $
 
 #import <Foundation/NSString.h>
 
 #import <Foundation/NSDecimal.h>
+#import <CoreFoundation/CFString.h>
 
 @class NSData, NSDecimalNumber;
 
@@ -20,6 +19,7 @@
 - (BOOL)boolValue;
 - (long long int)longLongValue;
 - (unsigned long long int)unsignedLongLongValue;
+- (unsigned long)unsignedLongValue;
 - (unsigned int)unsignedIntValue;
 - (intmax_t)maxIntegerValue;
 - (uintmax_t)maxUnsignedIntegerValue;
@@ -31,6 +31,7 @@
 - (NSData *)dataValue;
 
 - (unsigned int)hexValue;
+- (uintmax_t)maxHexValue;
 
 /* Covers for the C functions in CoreFoundation */
 - (NSData *)dataUsingCFEncoding:(CFStringEncoding)anEncoding;

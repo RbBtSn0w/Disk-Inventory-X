@@ -1,24 +1,28 @@
-// Copyright 2003-2005 Omni Development, Inc.  All rights reserved.
+// Copyright 2003-2019 Omni Development, Inc. All rights reserved.
 //
 // This software may only be used and reproduced according to the
 // terms in the file OmniSourceLicense.html, which should be
 // distributed with this project and can also be found at
 // <http://www.omnigroup.com/developer/sourcecode/sourcelicense/>.
-//
-// $Header: svn+ssh://source.omnigroup.com/Source/svn/Omni/tags/OmniSourceRelease/2008-09-09/OmniGroup/Frameworks/OmniAppKit/Widgets.subproj/OAContextButton.h 68913 2005-10-03 19:36:19Z kc $
 
 #import <AppKit/NSButton.h>
 #import <AppKit/NSNibDeclarations.h>
 
 @class NSMenu;
+@protocol OAContextControlDelegate;
+
+@interface OAContextButtonCell : NSButtonCell
+@end
 
 @interface OAContextButton : NSButton
-{
-    id delegate;
-}
 
 + (NSImage *)actionImage;
 + (NSImage *)miniActionImage;
+
+@property (nonatomic,weak) IBOutlet id <OAContextControlDelegate> delegate;
+
+// If YES (the default), clicking on the button will show a menu (via private action). If NO, the button will act like a normal button (and you should set a target/action on it).
+@property(nonatomic,assign) BOOL showsMenu;
 
 - (BOOL)validate;
 - (NSMenu *)locateActionMenu;

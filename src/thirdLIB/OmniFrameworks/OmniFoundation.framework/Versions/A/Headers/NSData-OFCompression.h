@@ -1,26 +1,30 @@
-// Copyright 1997-2008 Omni Development, Inc.  All rights reserved.
+// Copyright 1997-2019 Omni Development, Inc. All rights reserved.
 //
 // This software may only be used and reproduced according to the
 // terms in the file OmniSourceLicense.html, which should be
 // distributed with this project and can also be found at
 // <http://www.omnigroup.com/developer/sourcecode/sourcelicense/>.
-//
-// $Header: svn+ssh://source.omnigroup.com/Source/svn/Omni/branches/Staff/bungi/OmniFocus-20080310-iPhoneFactor/OmniGroup/Frameworks/OmniFoundation/OpenStepExtensions.subproj/NSData-OFExtensions.h 98493 2008-03-11 02:02:48Z bungi $
 
 #import <Foundation/NSData.h>
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface NSData (OFCompression)
 
 // Compression
 - (BOOL)mightBeCompressed;
-- (NSData *)compressedData;
-- (NSData *)decompressedData;
+- (nullable NSData *)compressedData:(NSError **)outError;
+- (nullable NSData *)decompressedData:(NSError **)outError;
 
 // Specific algorithms
-- (NSData *)compressedBzip2Data;
-- (NSData *)decompressedBzip2Data;
+#if !defined(TARGET_OS_IPHONE) || !TARGET_OS_IPHONE
+- (nullable NSData *)compressedBzip2Data:(NSError **)outError;
+- (nullable NSData *)decompressedBzip2Data:(NSError **)outError;
+#endif
 
-- (NSData *)compressedDataWithGzipHeader:(BOOL)includeHeader compressionLevel:(int)level;
-- (NSData *)decompressedGzipData;
+- (nullable NSData *)compressedDataWithGzipHeader:(BOOL)includeHeader compressionLevel:(int)level error:(NSError **)outError NS_SWIFT_NAME(compressedDataWithGzipHeader(_:compressionLevel:));
+- (nullable NSData *)decompressedGzipData:(NSError **)outError;
 
 @end
+
+NS_ASSUME_NONNULL_END

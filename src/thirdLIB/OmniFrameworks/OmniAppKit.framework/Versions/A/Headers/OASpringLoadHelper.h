@@ -1,11 +1,9 @@
-// Copyright 2003-2005 Omni Development, Inc.  All rights reserved.
+// Copyright 2003-2019 Omni Development, Inc. All rights reserved.
 //
 // This software may only be used and reproduced according to the
 // terms in the file OmniSourceLicense.html, which should be
 // distributed with this project and can also be found at
 // <http://www.omnigroup.com/developer/sourcecode/sourcelicense/>.
-//
-// $Header: svn+ssh://source.omnigroup.com/Source/svn/Omni/tags/OmniSourceRelease/2008-09-09/OmniGroup/Frameworks/OmniAppKit/Widgets.subproj/OASpringLoadHelper.h 66043 2005-07-25 21:17:05Z kc $
 
 #import <Foundation/NSObject.h>
 
@@ -30,7 +28,6 @@
 
 @interface OASpringLoadHelper : NSObject
 {
-    id <OASpringLoadHelper> nonretainedDelegate;
     NSTimer *springTimer;
     unsigned int flashCount;
     NSRect slopRect;

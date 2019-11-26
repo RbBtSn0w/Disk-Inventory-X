@@ -1,23 +1,24 @@
-// Copyright 1997-2008 Omni Development, Inc.  All rights reserved.
+// Copyright 1997-2019 Omni Development, Inc. All rights reserved.
 //
 // This software may only be used and reproduced according to the
 // terms in the file OmniSourceLicense.html, which should be
 // distributed with this project and can also be found at
 // <http://www.omnigroup.com/developer/sourcecode/sourcelicense/>.
-//
-// $Header: svn+ssh://source.omnigroup.com/Source/svn/Omni/tags/OmniSourceRelease/2008-09-09/OmniGroup/Frameworks/OmniFoundation/OpenStepExtensions.subproj/NSFileManager-OFTemporaryPath.h 104387 2008-08-27 17:53:39Z wiml $
 
 #import <Foundation/NSFileManager.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface NSFileManager (OFTemporaryPath)
 
-- (NSString *)temporaryPathForWritingToPath:(NSString *)path allowOriginalDirectory:(BOOL)allowOriginalDirectory error:(NSError **)outError;
-- (NSString *)temporaryPathForWritingToPath:(NSString *)path allowOriginalDirectory:(BOOL)allowOriginalDirectory create:(BOOL)create error:(NSError **)outError;
-- (NSString *)temporaryDirectoryForFileSystemContainingPath:(NSString *)path error:(NSError **)outError;
+- (nullable NSURL *)temporaryDirectoryForFileSystemContainingURL:(NSURL *)fileURL error:(NSError **)outError;
 
-#if !defined(TARGET_OS_IPHONE) || !TARGET_OS_IPHONE
-- (NSURL *)specialDirectory:(OSType)whatDirectoryType forFileSystemContainingPath:(NSString *)path create:(BOOL)createIfMissing error:(NSError **)outError;
-#endif
+// This returns a new URL that does not exist (but that should be relatively race free vs other callers as it contains a random identifier instead of an incrementing number). The path based versions below use a sequence number, checking if the file exists. Two calls in a row that are intended to return two temporary names could then return the same one twice.
+- (nullable NSURL *)temporaryURLForWritingToURL:(NSURL *)originalURL allowOriginalDirectory:(BOOL)allowOriginalDirectory error:(NSError **)outError;
+
+- (nullable NSString *)temporaryPathForWritingToPath:(NSString *)path allowOriginalDirectory:(BOOL)allowOriginalDirectory error:(NSError **)outError;
+- (nullable NSString *)temporaryPathForWritingToPath:(NSString *)path allowOriginalDirectory:(BOOL)allowOriginalDirectory create:(BOOL)create error:(NSError **)outError;
+- (nullable NSString *)temporaryDirectoryForFileSystemContainingPath:(NSString *)path error:(NSError **)outError;
 
 - (NSString *)tempFilenameFromTemplate:(NSString *)inputString
                               andRange:(NSRange)replaceRange;
@@ -34,9 +35,13 @@
 - (NSString *)tempFilenameFromHashesTemplate:(NSString *)inputString;
 // Create a unique temp filename from a template string which contains a substring of six hash marks which are to be replaced by the unique portion of the filename.
 
-- (NSString *)uniqueFilenameFromName:(NSString *)filename error:(NSError **)outError;
-- (NSString *)uniqueFilenameFromName:(NSString *)filename allowOriginal:(BOOL)allowOriginal create:(BOOL)create error:(NSError **)outError;
+- (nullable NSString *)uniqueFilenameFromName:(NSString *)filename error:(NSError **)outError;
+- (nullable NSString *)uniqueFilenameFromName:(NSString *)filename allowOriginal:(BOOL)allowOriginal create:(BOOL)create error:(NSError **)outError;
 // Generate a unique filename based on a suggested name
 
+- (BOOL)replaceFileAtPath:(NSString *)originalFile withFileAtPath:(NSString *)newFile error:(NSError **)outError;
+- (BOOL)exchangeFileAtPath:(NSString *)originalFile withFileAtPath:(NSString *)newFile error:(NSError **)outError;
 
 @end
+
+NS_ASSUME_NONNULL_END

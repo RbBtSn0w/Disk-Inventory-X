@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>BuildMachineOSBuild</key>
+	<string>19B88</string>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>English</string>
+	<string>en</string>
 	<key>CFBundleExecutable</key>
 	<string>OmniFoundation</string>
 	<key>CFBundleIdentifier</key>
@@ -12,10 +14,32 @@
 	<string>6.0</string>
 	<key>CFBundlePackageType</key>
 	<string>FMWK</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleSupportedPlatforms</key>
+	<array>
+		<string>MacOSX</string>
+	</array>
 	<key>CFBundleVersion</key>
-	<string>2001A</string>
+	<string>2015</string>
+	<key>DTCompiler</key>
+	<string>com.apple.compilers.llvm.clang.1_0</string>
+	<key>DTPlatformBuild</key>
+	<string>11B500</string>
+	<key>DTPlatformVersion</key>
+	<string>GM</string>
+	<key>DTSDKBuild</key>
+	<string>19B89</string>
+	<key>DTSDKName</key>
+	<string>macosx10.15</string>
+	<key>DTXcode</key>
+	<string>1120</string>
+	<key>DTXcodeBuild</key>
+	<string>11B500</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>10.14</string>
 	<key>OFRegistrations</key>
 	<dict>
 		<key>NSUserDefaults</key>
@@ -24,8 +48,34 @@
 			<dict>
 				<key>DisabledBundles</key>
 				<array/>
+				<key>FirstDayOfTheWeek</key>
+				<integer>-1</integer>
+				<key>OFCompletionMatchScoreForCapitalLetter</key>
+				<integer>15</integer>
+				<key>OFCompletionMatchScoreForConsecutiveCharacter</key>
+				<integer>25</integer>
+				<key>OFCompletionMatchScoreForConsecutiveWord</key>
+				<integer>10</integer>
+				<key>OFCompletionMatchScoreForFullMatch</key>
+				<integer>100</integer>
+				<key>OFCompletionMatchScoreForPhraseEnd</key>
+				<integer>5</integer>
+				<key>OFCompletionMatchScoreForPhraseStart</key>
+				<integer>20</integer>
+				<key>OFCompletionMatchScoreForWordStart</key>
+				<integer>10</integer>
 				<key>OFScratchDirectory</key>
 				<string>NSTemporaryDirectory</string>
+				<key>RelativeDateFormatterDateFormatStyle</key>
+				<string>short</string>
+				<key>RelativeDateFormatterDefaultHour</key>
+				<integer>23</integer>
+				<key>RelativeDateFormatterDefaultMinute</key>
+				<integer>59</integer>
+				<key>RelativeDateFormatterDefaultWantsTruncatedTime</key>
+				<false/>
+				<key>RelativeDateFormatterShowTime</key>
+				<false/>
 			</dict>
 		</dict>
 	</dict>

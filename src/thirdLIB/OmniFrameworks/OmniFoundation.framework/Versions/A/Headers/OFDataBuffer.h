@@ -1,11 +1,9 @@
-// Copyright 1997-2005, 2007-2008 Omni Development, Inc.  All rights reserved.
+// Copyright 1997-2019 Omni Development, Inc. All rights reserved.
 //
 // This software may only be used and reproduced according to the
 // terms in the file OmniSourceLicense.html, which should be
 // distributed with this project and can also be found at
 // <http://www.omnigroup.com/developer/sourcecode/sourcelicense/>.
-//
-// $Header: svn+ssh://source.omnigroup.com/Source/svn/Omni/tags/OmniSourceRelease/2008-09-09/OmniGroup/Frameworks/OmniFoundation/DataStructures.subproj/OFDataBuffer.h 98560 2008-03-12 17:28:00Z bungi $
 
 
 #import <Foundation/NSData.h>
@@ -19,13 +17,9 @@
 
 #import <OmniFoundation/OFByte.h>
 #import <OmniBase/assertions.h>
-
-#import <stdio.h>
+#import <stdlib.h>
 
 typedef struct {
-    /*" The full contents of the buffer "*/
-    NSMutableData  *data;
-    
     /*" The current pointer of the data object "*/
     OFByte         *buffer;
     
@@ -42,7 +36,6 @@ typedef struct {
 static inline void
 OFDataBufferInit(OFDataBuffer *dataBuffer)
 {
-    dataBuffer->data = [[NSMutableData alloc] init];
     dataBuffer->buffer = NULL;
     dataBuffer->writeStart = NULL;
     dataBuffer->bufferEnd = NULL;
@@ -50,10 +43,14 @@ OFDataBufferInit(OFDataBuffer *dataBuffer)
 }
 
 static inline void
-OFDataBufferRelease(OFDataBuffer *dataBuffer)
+OFDataBufferRelease(OFDataBuffer *dataBuffer, CFAllocatorRef dataAllocator, CFDataRef *outData)
 {
-    [dataBuffer->data release];
-    dataBuffer->data = nil;
+    if (outData) {
+        // When an outData is supplied, the caller gains ownership of our internal buffer. We allow the caller to specify the allocator for the CFDataRef itself.
+        *outData = CFDataCreateWithBytesNoCopy(dataAllocator, dataBuffer->buffer, dataBuffer->writeStart - dataBuffer->buffer, kCFAllocatorMalloc);
+    } else if (dataBuffer->buffer)
+        free(dataBuffer->buffer);
+    
     dataBuffer->buffer = NULL;
     dataBuffer->writeStart = NULL;
     dataBuffer->bufferEnd = NULL;
@@ -81,11 +78,18 @@ OFDataBufferSpaceCapacity(OFDataBuffer *dataBuffer)
 static inline void
 OFDataBufferSetCapacity(OFDataBuffer *dataBuffer, size_t capacity)
 {
-    size_t occupied;
-
-    occupied = OFDataBufferSpaceOccupied(dataBuffer);
-    [dataBuffer->data setLength: capacity];
-    dataBuffer->buffer = (OFByte *)[dataBuffer->data mutableBytes];
+    OBASSERT_IF(dataBuffer->buffer == NULL, capacity > 0); // realloc(NULL,0) is equivalent to malloc(0), which has implementation-defined behavior
+    if (capacity == 0)
+        capacity = 1;
+    
+    size_t occupied = OFDataBufferSpaceOccupied(dataBuffer);
+    OBASSERT(capacity >= occupied);
+    void *newBuffer = reallocf(dataBuffer->buffer, capacity);
+    if (!newBuffer) {
+        // If dataBuffer->buffer was NULL, then we have the same situation we started with. Otherwise, dataBuffer->buffer is still valid, but wasn't resized, so again, the same situation we started with. However, we can't satisfy our spec in either case, so:
+        [NSException raise:NSMallocException format:@"Unable to resize buffer"];
+    }
+    dataBuffer->buffer = (OFByte *)newBuffer;
     dataBuffer->writeStart = dataBuffer->buffer + occupied;
     dataBuffer->bufferEnd  = dataBuffer->buffer + capacity;
 }
@@ -96,14 +100,17 @@ OFDataBufferSizeToFit(OFDataBuffer *dataBuffer)
     OFDataBufferSetCapacity(dataBuffer, OFDataBufferSpaceOccupied(dataBuffer));
 }
 
-static inline NSData *
+// If we have API like this, we'd need to make a full copy here, which would be slow. Hopefully all the callers can use the outData on OFDataBufferRelease().
+#if 0
+static inline CFDataRef
 OFDataBufferData(OFDataBuffer *dataBuffer)
 {
     // For backwards compatibility (and just doing what the caller expects)
     // this must size the buffer to the expected size.
     OFDataBufferSizeToFit(dataBuffer);
-    return dataBuffer->data;
+    return dataBuffer->_data;
 }
+#endif
 
 // Backwards compatibility
 static inline void
@@ -115,15 +122,12 @@ OFDataBufferFlush(OFDataBuffer *dataBuffer)
 static inline OFByte *
 OFDataBufferGetPointer(OFDataBuffer *dataBuffer, size_t spaceNeeded)
 {
-    size_t newSize;
-    size_t occupied;
-    
     if (OFDataBufferSpaceAvailable(dataBuffer) >= spaceNeeded)
         return dataBuffer->writeStart;
         
     // Otherwise, we have to grow the internal data and reset all our pointers
-    occupied = OFDataBufferSpaceOccupied(dataBuffer);
-    newSize = 2 * OFDataBufferSpaceCapacity(dataBuffer);
+    size_t occupied = OFDataBufferSpaceOccupied(dataBuffer);
+    size_t newSize = 2 * OFDataBufferSpaceCapacity(dataBuffer);
     if (newSize < occupied + spaceNeeded)
         newSize = 2 * (occupied + spaceNeeded);
 
@@ -143,18 +147,19 @@ OFDataBufferDidAppend(OFDataBuffer *dataBuffer, size_t spaceUsed)
 static inline char
 OFDataBufferHexCharacterForDigit(int digit)
 {
+    OBPRECONDITION(digit >= 0x0);
+    OBPRECONDITION(digit <= 0xf);
+    
     if (digit < 10)
-	return digit + '0';
+	return (char)(digit + '0');
     else
-	return digit + 'a' - 10;
+	return (char)(digit + 'a' - 10);
 }
 
 static inline void
 OFDataBufferAppendByte(OFDataBuffer *dataBuffer, OFByte aByte)
 {
-    OFByte *ptr;
-    
-    ptr = OFDataBufferGetPointer(dataBuffer, sizeof(OFByte));
+    OFByte *ptr = OFDataBufferGetPointer(dataBuffer, sizeof(OFByte));
     *ptr = aByte;
     OFDataBufferDidAppend(dataBuffer, sizeof(OFByte));
 }
@@ -180,10 +185,10 @@ OFDataBufferAppendCString(OFDataBuffer *dataBuffer, const char *str)
 }
  
 static inline void
-OFDataBufferAppendBytes(OFDataBuffer *dataBuffer, const OFByte *bytes, unsigned int length)
+OFDataBufferAppendBytes(OFDataBuffer *dataBuffer, const OFByte *bytes, size_t length)
 {
     OFByte *ptr;
-    unsigned int byteIndex;
+    size_t byteIndex;
     
     ptr = OFDataBufferGetPointer(dataBuffer, length);
 
@@ -290,11 +295,9 @@ static inline void OFDataBufferAppendCompressedLongLongInt(OFDataBuffer *dataBuf
 }
 
 static inline void
-OFDataBufferAppendHexWithReturnsForBytes(OFDataBuffer *dataBuffer, const OFByte *bytes, unsigned int length)
+OFDataBufferAppendHexWithReturnsForBytes(OFDataBuffer *dataBuffer, const OFByte *bytes, size_t length)
 {
-    unsigned int byteIndex;
-    
-    byteIndex = 0;
+    size_t byteIndex = 0;
     while (byteIndex < length) {
 	OFDataBufferAppendHexForByte(dataBuffer, bytes[byteIndex]);
 	byteIndex++;
@@ -319,7 +322,11 @@ OFDataBufferAppendInteger(OFDataBuffer *dataBuffer, int integer)
 	divisor = 0;
     divisor = (int)pow(10.0, (double)divisor);
     while (1) {
-	OFDataBufferAppendByte(dataBuffer, (integer / divisor) + '0');
+        int digit = (integer / divisor);
+        OBASSERT(digit >= 0);
+        OBASSERT(digit <= 9);
+	OFDataBufferAppendByte(dataBuffer, (char)(digit + '0'));
+        
 	if (divisor <= 1)
 	    break;
 	integer %= divisor;
@@ -355,7 +362,7 @@ OFDataBufferAppendString(OFDataBuffer *dataBuffer, CFStringRef string, CFStringE
     CFIndex charactersWritten = CFStringGetBytes(string, CFRangeMake(0, characterCount), encoding, 0/*lossByte*/, false/*isExternalRepresentation*/, ptr, 4 * characterCount, &usedBufLen);
     if (charactersWritten != characterCount) {
         [NSException raise: NSInternalInconsistencyException
-                    format: @"OFDataBufferAppendString was supposed to write %d characters but only wrote %d", characterCount, charactersWritten];
+                    format: @"OFDataBufferAppendString was supposed to write %ld characters but only wrote %ld", characterCount, charactersWritten];
     }
     
     OFDataBufferDidAppend(dataBuffer, usedBufLen);
@@ -373,7 +380,7 @@ OFDataBufferAppendBytecountedUTF8String(OFDataBuffer *dataBuffer, OFDataBuffer *
     charactersWritten = CFStringGetBytes(string, CFRangeMake(0, stringLength), kCFStringEncodingUTF8, 0/*lossByte*/, false/*isExternalRepresentation*/, bytePointer, maximumLength, &stringLengthInBuffer);
     if (charactersWritten != stringLength)
         [NSException raise: NSInternalInconsistencyException
-                    format: @"OFDataBufferAppendBytecountedUTF8String was supposed to write %d characters but only wrote %d", stringLength, charactersWritten];
+                    format: @"OFDataBufferAppendBytecountedUTF8String was supposed to write %ld characters but only wrote %ld", stringLength, charactersWritten];
     OFDataBufferAppendCompressedLongInt(dataBuffer, stringLengthInBuffer);
     OFDataBufferAppendBytes(dataBuffer, bytePointer, stringLengthInBuffer);
 }
@@ -389,7 +396,7 @@ OFDataBufferAppendUnicodeString(OFDataBuffer *dataBuffer, CFStringRef string)
     CFIndex charactersWritten = CFStringGetBytes(string, CFRangeMake(0, characterCount), kCFStringEncodingUnicode, 0/*lossByte*/, false/*isExternalRepresentation*/, ptr, sizeof(unichar) * characterCount, &usedBufLen);
     if (charactersWritten != characterCount) {
         [NSException raise: NSInternalInconsistencyException
-                    format: @"OFDataBufferAppendUnicodeString was supposed to write %d characters but only wrote %d", characterCount, charactersWritten];
+                    format: @"OFDataBufferAppendUnicodeString was supposed to write %ld characters but only wrote %ld", characterCount, charactersWritten];
     }
 
     OFDataBufferDidAppend(dataBuffer, usedBufLen);

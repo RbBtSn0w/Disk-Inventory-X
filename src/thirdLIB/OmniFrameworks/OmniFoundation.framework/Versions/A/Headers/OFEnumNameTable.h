@@ -1,53 +1,42 @@
-// Copyright 2002-2008 Omni Development, Inc.  All rights reserved.
+// Copyright 2002-2019 Omni Development, Inc. All rights reserved.
 //
 // This software may only be used and reproduced according to the
 // terms in the file OmniSourceLicense.html, which should be
 // distributed with this project and can also be found at
 // <http://www.omnigroup.com/developer/sourcecode/sourcelicense/>.
-//
-// $Header: svn+ssh://source.omnigroup.com/Source/svn/Omni/tags/OmniSourceRelease/2008-09-09/OmniGroup/Frameworks/OmniFoundation/DataStructures.subproj/OFEnumNameTable.h 103792 2008-08-06 04:02:53Z wiml $
 
 #import <Foundation/NSObject.h>
 #import <Foundation/NSString.h>
 #import <CoreFoundation/CFDictionary.h>
 #import <CoreFoundation/CFArray.h>
 
-@class OFXMLCursor, OFXMLDocument;
+NS_ASSUME_NONNULL_BEGIN
 
 @interface OFEnumNameTable : NSObject
-{
-    int                    _defaultEnumValue;
-    CFMutableArrayRef      _enumOrder;
-    CFMutableDictionaryRef _enumToName;
-    CFMutableDictionaryRef _enumToDisplayName;
-    CFMutableDictionaryRef _nameToEnum;
-}
 
-- initWithDefaultEnumValue: (int) defaultEnumValue;
-- (int) defaultEnumValue;
+- initWithDefaultEnumValue:(NSInteger)defaultEnumValue;
 
-- (void)setName:(NSString *)enumName forEnumValue:(int)enumValue;
-- (void)setName:(NSString *)enumName displayName:(NSString *)displayName forEnumValue:(int)enumValue;
+@property(nonatomic,readonly) NSInteger defaultEnumValue;
 
-- (NSString *)nameForEnum:(int)enumValue;
-- (NSString *)displayNameForEnum:(int)enumValue;
-- (int) enumForName: (NSString *) name;
-- (BOOL) isEnumValue: (int) enumValue;
-- (BOOL) isEnumName: (NSString *) name;
+- (void)setName:(NSString *)enumName forEnumValue:(NSInteger)enumValue;
+- (void)setName:(NSString *)enumName displayName:(NSString *)displayName forEnumValue:(NSInteger)enumValue;
 
-- (unsigned int)count;
-- (int)enumForIndex:(CFIndex)enumIndex;
-- (int)nextEnum:(int)enumValue;
+- (NSString *)nameForEnum:(NSInteger)enumValue;
+- (NSString *)displayNameForEnum:(NSInteger)enumValue;
+- (NSInteger)enumForName:(NSString *)name;
+- (BOOL)isEnumValue:(NSInteger)enumValue;
+- (BOOL)isEnumName:(NSString *)name;
+
+@property(nonatomic,readonly) NSUInteger count;
+- (NSInteger)enumForIndex:(NSUInteger)enumIndex;
+- (NSInteger)nextEnum:(NSInteger)enumValue;
 - (NSString *)nextName:(NSString *)name;
 
 // Comparison
-- (BOOL) isEqual: (id)anotherEnumeration;
+- (BOOL)isEqual:(nullable id)anotherEnumeration;
 
 // Masks
 
-// Archving (primarily for OAEnumStyleAttribute)
-+ (NSString *)xmlElementName;
-- (void)appendXML:(OFXMLDocument *)doc;
-- initFromXML:(OFXMLCursor *)cursor;
-
 @end
+
+NS_ASSUME_NONNULL_END

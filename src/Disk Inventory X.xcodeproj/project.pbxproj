@@ -8,18 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		B11C99CD238D563C0062C724 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B11C99CC238D563C0062C724 /* Cocoa.framework */; };
+		B11C9A31238D5ECC0062C724 /* OmniAppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B11C9A2E238D5ECC0062C724 /* OmniAppKit.framework */; };
+		B11C9A32238D5ECC0062C724 /* OmniAppKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B11C9A2E238D5ECC0062C724 /* OmniAppKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B11C9A33238D5ECC0062C724 /* OmniFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B11C9A2F238D5ECC0062C724 /* OmniFoundation.framework */; };
+		B11C9A34238D5ECC0062C724 /* OmniFoundation.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B11C9A2F238D5ECC0062C724 /* OmniFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B11C9A35238D5ECC0062C724 /* OmniBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B11C9A30238D5ECC0062C724 /* OmniBase.framework */; };
+		B11C9A36238D5ECC0062C724 /* OmniBase.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B11C9A30238D5ECC0062C724 /* OmniBase.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B19827D5238D4DE400561962 /* TreeMapView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B19827CE238D4DE400561962 /* TreeMapView.framework */; };
 		B19827D6238D4DE400561962 /* TreeMapView.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B19827CE238D4DE400561962 /* TreeMapView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B19827D7238D4DE400561962 /* CocoaTechStrings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B19827CF238D4DE400561962 /* CocoaTechStrings.framework */; };
 		B19827D8238D4DE400561962 /* CocoaTechStrings.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B19827CF238D4DE400561962 /* CocoaTechStrings.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B19827D9238D4DE400561962 /* OmniFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B19827D0238D4DE400561962 /* OmniFoundation.framework */; };
-		B19827DA238D4DE400561962 /* OmniFoundation.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B19827D0238D4DE400561962 /* OmniFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B19827DB238D4DE400561962 /* CocoatechFile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B19827D1238D4DE400561962 /* CocoatechFile.framework */; };
 		B19827DC238D4DE400561962 /* CocoatechFile.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B19827D1238D4DE400561962 /* CocoatechFile.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B19827DD238D4DE400561962 /* OmniBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B19827D2238D4DE400561962 /* OmniBase.framework */; };
-		B19827DE238D4DE400561962 /* OmniBase.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B19827D2238D4DE400561962 /* OmniBase.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B19827DF238D4DE400561962 /* OmniAppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B19827D3238D4DE400561962 /* OmniAppKit.framework */; };
-		B19827E0238D4DE400561962 /* OmniAppKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B19827D3238D4DE400561962 /* OmniAppKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B19827E1238D4DE400561962 /* CocoatechCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B19827D4238D4DE400561962 /* CocoatechCore.framework */; };
 		B19827E2238D4DE400561962 /* CocoatechCore.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = B19827D4238D4DE400561962 /* CocoatechCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FC2A428A2219C89900A484D7 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2A42892219C89900A484D7 /* AppController.m */; };
@@ -110,13 +110,13 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B19827DE238D4DE400561962 /* OmniBase.framework in CopyFiles */,
 				B19827DC238D4DE400561962 /* CocoatechFile.framework in CopyFiles */,
 				B19827D6238D4DE400561962 /* TreeMapView.framework in CopyFiles */,
+				B11C9A34238D5ECC0062C724 /* OmniFoundation.framework in CopyFiles */,
 				B19827D8238D4DE400561962 /* CocoaTechStrings.framework in CopyFiles */,
-				B19827E0238D4DE400561962 /* OmniAppKit.framework in CopyFiles */,
-				B19827DA238D4DE400561962 /* OmniFoundation.framework in CopyFiles */,
 				B19827E2238D4DE400561962 /* CocoatechCore.framework in CopyFiles */,
+				B11C9A36238D5ECC0062C724 /* OmniBase.framework in CopyFiles */,
+				B11C9A32238D5ECC0062C724 /* OmniAppKit.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,12 +126,12 @@
 		32DBCF750370BD2300C91783 /* Disk Inventory X_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Disk Inventory X_Prefix.pch"; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* Disk Inventory X.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Disk Inventory X.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B11C99CC238D563C0062C724 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		B11C9A2E238D5ECC0062C724 /* OmniAppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OmniAppKit.framework; path = thirdLIB/OmniFrameworks/OmniAppKit.framework; sourceTree = "<group>"; };
+		B11C9A2F238D5ECC0062C724 /* OmniFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OmniFoundation.framework; path = thirdLIB/OmniFrameworks/OmniFoundation.framework; sourceTree = "<group>"; };
+		B11C9A30238D5ECC0062C724 /* OmniBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OmniBase.framework; path = thirdLIB/OmniFrameworks/OmniBase.framework; sourceTree = "<group>"; };
 		B19827CE238D4DE400561962 /* TreeMapView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TreeMapView.framework; path = thirdLIB/TreeMapView/TreeMapView.framework; sourceTree = "<group>"; };
 		B19827CF238D4DE400561962 /* CocoaTechStrings.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaTechStrings.framework; path = thirdLIB/CocoaTech/CocoaTechStrings.framework; sourceTree = "<group>"; };
-		B19827D0238D4DE400561962 /* OmniFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OmniFoundation.framework; path = thirdLIB/OmniFrameworks/OmniFoundation.framework; sourceTree = "<group>"; };
 		B19827D1238D4DE400561962 /* CocoatechFile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoatechFile.framework; path = thirdLIB/CocoaTech/CocoatechFile.framework; sourceTree = "<group>"; };
-		B19827D2238D4DE400561962 /* OmniBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OmniBase.framework; path = thirdLIB/OmniFrameworks/OmniBase.framework; sourceTree = "<group>"; };
-		B19827D3238D4DE400561962 /* OmniAppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OmniAppKit.framework; path = thirdLIB/OmniFrameworks/OmniAppKit.framework; sourceTree = "<group>"; };
 		B19827D4238D4DE400561962 /* CocoatechCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoatechCore.framework; path = thirdLIB/CocoaTech/CocoatechCore.framework; sourceTree = "<group>"; };
 		FC2A42882219C89900A484D7 /* AppController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		FC2A42892219C89900A484D7 /* AppController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
@@ -315,13 +315,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B11C9A33238D5ECC0062C724 /* OmniFoundation.framework in Frameworks */,
 				B11C99CD238D563C0062C724 /* Cocoa.framework in Frameworks */,
-				B19827DD238D4DE400561962 /* OmniBase.framework in Frameworks */,
 				B19827DB238D4DE400561962 /* CocoatechFile.framework in Frameworks */,
 				B19827D5238D4DE400561962 /* TreeMapView.framework in Frameworks */,
+				B11C9A35238D5ECC0062C724 /* OmniBase.framework in Frameworks */,
 				B19827D7238D4DE400561962 /* CocoaTechStrings.framework in Frameworks */,
-				B19827DF238D4DE400561962 /* OmniAppKit.framework in Frameworks */,
-				B19827D9238D4DE400561962 /* OmniFoundation.framework in Frameworks */,
+				B11C9A31238D5ECC0062C724 /* OmniAppKit.framework in Frameworks */,
 				B19827E1238D4DE400561962 /* CocoatechCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,13 +400,13 @@
 		2A37F4C3FDCFA73011CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B11C9A2E238D5ECC0062C724 /* OmniAppKit.framework */,
+				B11C9A30238D5ECC0062C724 /* OmniBase.framework */,
+				B11C9A2F238D5ECC0062C724 /* OmniFoundation.framework */,
 				B11C99CC238D563C0062C724 /* Cocoa.framework */,
 				B19827D4238D4DE400561962 /* CocoatechCore.framework */,
 				B19827D1238D4DE400561962 /* CocoatechFile.framework */,
 				B19827CF238D4DE400561962 /* CocoaTechStrings.framework */,
-				B19827D3238D4DE400561962 /* OmniAppKit.framework */,
-				B19827D2238D4DE400561962 /* OmniBase.framework */,
-				B19827D0238D4DE400561962 /* OmniFoundation.framework */,
 				B19827CE238D4DE400561962 /* TreeMapView.framework */,
 			);
 			includeInIndex = 0;
@@ -1017,6 +1017,7 @@
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = OMNI_BUILDING_FOR_MAC;
 				GCC_VERSION = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -1076,7 +1077,7 @@
 				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = "";
+				GCC_PREPROCESSOR_DEFINITIONS = OMNI_BUILDING_FOR_MAC;
 				GCC_VERSION = "";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;

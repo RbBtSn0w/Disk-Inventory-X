@@ -1,45 +1,44 @@
-// Copyright 2005-2008 Omni Development, Inc.  All rights reserved.
+// Copyright 2005-2019 Omni Development, Inc. All rights reserved.
 //
 // This software may only be used and reproduced according to the
 // terms in the file OmniSourceLicense.html, which should be
 // distributed with this project and can also be found at
 // <http://www.omnigroup.com/developer/sourcecode/sourcelicense/>.
-//
-// $Header: svn+ssh://source.omnigroup.com/Source/svn/Omni/tags/OmniSourceRelease/2008-09-09/OmniGroup/Frameworks/OmniBase/NSError-OBExtensions.h 102857 2008-07-15 04:22:17Z bungi $
 
 #import <Foundation/NSError.h>
 
-#if defined(__cplusplus)
-extern "C" {
-#endif
-    
-extern NSString * const OBUserCancelledActionErrorKey;
-extern NSString * const OBFileNameAndNumberErrorKey;
+// This header was split out; import for backwards compatibility
+#import <OmniBase/NSError-OBUtilities.h>
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface NSError (OBExtensions)
 
-- (BOOL)hasUnderlyingErrorDomain:(NSString *)domain code:(int)code;
-- (BOOL)causedByUserCancelling;
+- (nullable NSError *)underlyingErrorWithDomain:(NSString *)domain;
+- (nullable NSError *)underlyingErrorWithDomain:(NSString *)domain code:(NSInteger)code;
+- (BOOL)hasUnderlyingErrorDomain:(NSString *)domain code:(NSInteger)code;
 
-- initWithPropertyList:(NSDictionary *)propertyList;
-- (NSDictionary *)toPropertyList;
+@property(nonatomic,readonly) BOOL causedByUserCancelling;
+@property(nonatomic,readonly) BOOL causedByMissingFile;
+@property(nonatomic,readonly) BOOL causedByExistingFile;
+@property(nonatomic,readonly) BOOL causedByUnreachableHost;
+@property(nonatomic,readonly) BOOL causedByAppTransportSecurity;
+
+#if !defined(TARGET_OS_WATCH) || !TARGET_OS_WATCH
+@property(nonatomic,readonly) BOOL causedByNetworkConnectionLost;
+#endif
+
+- (id)initWithPropertyList:(NSDictionary *)propertyList;
+- (NSDictionary<NSString *, id> *)toPropertyList;
+
+// Useful for test cases that intentionally provoke errors that might be logged to the console as well as being reported to the user via other means (if UI was hooked up). Only suppresses the error for the duration of the given action, and only on the calling thread.
++ (void)suppressingLogsWithUnderlyingDomain:(NSString *)domain code:(NSInteger)code action:(void (^ NS_NOESCAPE)(void))action;
+
+// If the error isn't being suppressed, the format and arguments are turned into a string and logged, along with the property list version of the error.
+- (void)log:(NSString *)format, ... NS_FORMAT_FUNCTION(1,2);
+- (void)log:(NSString *)format arguments:(va_list)arguments;
+- (void)logWithReason:(NSString *)reason;
+
 @end
 
-extern void OBErrorv(NSError **error, NSString *domain, int code, const char *fileName, unsigned int line, NSString *firstKey, va_list args);
-extern void _OBError(NSError **error, NSString *domain, int code, const char *fileName, unsigned int line, NSString *firstKey, ...);
-
-#ifdef OMNI_BUNDLE_IDENTIFIER
-// It is expected that -DOMNI_BUNDLE_IDENTIFIER=@"com.foo.bar" will be set when building your code.  Build configurations make this easy since you can set it in the target's configuration and then have your Other C Flags have -DOMNI_BUNDLE_IDENTIFIER=@\"$(OMNI_BUNDLE_IDENTIFIER)\" and also use $(OMNI_BUNDLE_IDENTIFIER) in your Info.plist instead of duplicating it.
-#define OBError(error, code, description) _OBError(error, OMNI_BUNDLE_IDENTIFIER, code, __FILE__, __LINE__, NSLocalizedDescriptionKey, description, nil)
-#define OBErrorWithInfo(error, code, ...) _OBError(error, OMNI_BUNDLE_IDENTIFIER, code, __FILE__, __LINE__, ## __VA_ARGS__)
-#endif
-
-// Unlike the other routines in this file, but like all the other Foundation routines, this takes its key-value pairs with each value followed by its key.  The disadvantage to this is that you can't easily have runtime-ignored values (the nil value is a terminator rather than being skipped).
-void OBErrorWithErrnoObjectsAndKeys(NSError **error, int errno_value, const char *function, NSString *argument, NSString *localizedDescription, ...);
-#define OBErrorWithErrno(error, errno_value, function, argument, localizedDescription) OBErrorWithErrnoObjectsAndKeys(error, errno_value, function, argument, localizedDescription, nil)
-
-
-#if defined(__cplusplus)
-} // extern "C"
-#endif
-
+NS_ASSUME_NONNULL_END

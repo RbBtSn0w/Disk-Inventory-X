@@ -1,11 +1,9 @@
-// Copyright 1997-2008 Omni Development, Inc.  All rights reserved.
+// Copyright 1997-2019 Omni Development, Inc. All rights reserved.
 //
 // This software may only be used and reproduced according to the
 // terms in the file OmniSourceLicense.html, which should be
 // distributed with this project and can also be found at
 // <http://www.omnigroup.com/developer/sourcecode/sourcelicense/>.
-//
-// $Header: svn+ssh://source.omnigroup.com/Source/svn/Omni/tags/OmniSourceRelease/2008-09-09/OmniGroup/Frameworks/OmniFoundation/OpenStepExtensions.subproj/NSString-OFExtensions.h 98560 2008-03-12 17:28:00Z bungi $
 
 #import <Foundation/NSString.h>
 
@@ -16,14 +14,15 @@
 #import <OmniFoundation/NSString-OFConversion.h>
 #import <OmniFoundation/NSString-OFURLEncoding.h>
 #import <OmniFoundation/NSString-OFCharacterEnumeration.h>
+#import <OmniBase/objc.h>
 
-#import <Foundation/NSDecimalNumber.h>
 #import <Foundation/NSDate.h> // For NSTimeInterval
 
 #import <CoreFoundation/CFString.h>  // for CFStringEncoding
 
+@class NSRegularExpression;
 @class OFCharacterSet;
-@class OFRegularExpression;
+@class OFRegularExpressionMatch;
 
 /* A note on deferred string decoding.
 
@@ -54,21 +53,33 @@ Currently the only way to create strings with deferred bytes/characters is using
 + (NSString *)defaultValueForCFStringEncoding:(CFStringEncoding)anEncoding;
 + (NSString *)abbreviatedStringForBytes:(unsigned long long)bytes;
 + (NSString *)abbreviatedStringForHertz:(unsigned long long)hz;
-+ (NSString *)humanReadableStringForTimeInterval:(NSTimeInterval)timeInterval;
-+ (NSString *)spacesOfLength:(unsigned int)aLength;
-+ (NSString *)stringWithStrings:(NSString *)first, ...;
++ (NSString *)approximateStringForTimeInterval:(NSTimeInterval)interval;
++ (NSString *)spacesOfLength:(NSUInteger)aLength;
++ (NSString *)stringWithStrings:(NSString *)first, ... NS_REQUIRES_NIL_TERMINATION;
 
 - (BOOL)isPercentage;
 
+#if !defined(TARGET_OS_IPHONE) || !TARGET_OS_IPHONE
 + (NSString *)stringWithFourCharCode:(FourCharCode)code;
 - (FourCharCode)fourCharCodeValue;
+#endif
 
 - (NSString *)stringByUppercasingAndUnderscoringCaseChanges;
-- (NSString *)stringByCollapsingWhitespaceAndRemovingSurroundingWhitespace;
 - (NSString *)stringByRemovingWhitespace;
 - (NSString *)stringByRemovingCharactersInOFCharacterSet:(OFCharacterSet *)removeSet;
 - (NSString *)stringByRemovingReturns;
-- (NSString *)stringByRemovingRegularExpression:(OFRegularExpression *)regularExpression;
+- (NSString *)stringByRemovingRegularExpression:(NSRegularExpression *)regularExpression;
+
+enum {
+    OFStringNormlizationOptionLowercase = 0x01,
+    OFStringNormlizationOptionUppercase = 0x02,
+    OFStringNormilzationOptionStripCombiningMarks = 0x04,
+    OFStringNormilzationOptionStripPunctuation = 0x08
+};
+
+- (NSString *)stringByNormalizingWithOptions:(NSUInteger)options locale:(NSLocale *)locale;
+
+- (NSString *)stringByPaddingToLength:(NSUInteger)aLength;
 
 - (NSString *)stringByNormalizingPath;
     // Normalizes a path like /a/b/c/../../d to /a/d.
@@ -80,54 +91,66 @@ Currently the only way to create strings with deferred bytes/characters is using
 
 - (NSString *)stringByApplyingDeferredCFEncoding:(CFStringEncoding)newEncoding;
 
-- (NSString *)stringByReplacingAllOccurrencesOfRegularExpressionString:(NSString *)matchString withString:(NSString *)newString;
+- (NSString *)stringByReplacingAllOccurrencesOfRegularExpressionPattern:(NSString *)pattern withString:(NSString *)newString;
     // Note: Useful, but fairly expensive!
+- (NSString *)stringByReplacingAllOccurrencesOfRegularExpression:(NSRegularExpression *)matchExpression withString:(NSString *)newString;
+- (NSString *)stringByReplacingAllOccurrencesOfRegularExpression:(NSRegularExpression *)matchExpression withAction:(NSString *(^)(OFRegularExpressionMatch *))action;
 
 - (NSString *)stringByReplacingOccurancesOfString:(NSString *)targetString withObjectsFromArray:(NSArray *)sourceArray;
 
-- (NSString *)stringBySeparatingSubstringsOfLength:(unsigned int)substringLength withString:(NSString *)separator startingFromBeginning:(BOOL)startFromBeginning;
+- (NSString *)stringBySeparatingSubstringsOfLength:(NSUInteger)substringLength withString:(NSString *)separator startingFromBeginning:(BOOL)startFromBeginning;
 
 - (NSString *)substringStartingWithString:(NSString *)startString;
 - (NSString *)substringStartingAfterString:(NSString *)startString;
-- (NSArray *)componentsSeparatedByString:(NSString *)separator maximum:(unsigned)atMost;
+- (NSArray *)componentsSeparatedByString:(NSString *)separator maximum:(NSUInteger)atMost;
 - (NSArray *)componentsSeparatedByCharactersFromSet:(NSCharacterSet *)delimiterSet;
 
-- (NSString *)stringByIndenting:(int)spaces;
-- (NSString *)stringByWordWrapping:(int)columns;
-- (NSString *)stringByIndenting:(int)spaces andWordWrapping:(int)columns;
-- (NSString *)stringByIndenting:(int)spaces andWordWrapping:(int)columns withFirstLineIndent:(int)firstLineSpaces;
+typedef NS_OPTIONS(NSUInteger, OFComponentsSeparatedByStringOptions) {
+    OFComponentsSeparatedByStringOptionsConsumeWhitespaceSurroundingDelimiter = 0x01,
+};
+- (NSArray *)componentsSeparatedByString:(NSString *)separator options:(OFComponentsSeparatedByStringOptions)options;
+- (NSArray *)componentsSeparatedByRegularExpression:(NSRegularExpression *)expression;
+
+- (NSString *)stringByIndenting:(NSInteger)spaces;
+- (NSString *)stringByWordWrapping:(NSInteger)columns;
+- (NSString *)stringByIndenting:(NSInteger)spaces andWordWrapping:(NSInteger)columns;
+- (NSString *)stringByIndenting:(NSInteger)spaces andWordWrapping:(NSInteger)columns withFirstLineIndent:(NSInteger)firstLineSpaces;
 
 
-- (NSRange)findString:(NSString *)string selectedRange:(NSRange)selectedRange options:(unsigned int)options wrap:(BOOL)wrap;
+- (NSRange)findString:(NSString *)string selectedRange:(NSRange)selectedRange options:(NSStringCompareOptions)options wrap:(BOOL)wrap;
 
-- (NSRange)rangeOfCharactersAtIndex:(unsigned)pos
+- (NSRange)rangeOfCharactersAtIndex:(NSUInteger)pos
                         delimitedBy:(NSCharacterSet *)delim;
-- (NSRange)rangeOfWordContainingCharacter:(unsigned)pos;
+- (NSRange)rangeOfWordContainingCharacter:(NSUInteger)pos;
 - (NSRange)rangeOfWordsIntersectingRange:(NSRange)range;
 
-// Needs encoding and out error; don't enable until it has them
+// Can we drop this and use something in OFXMLString instead?
 #if 0
-#if !defined(MAC_OS_X_VERSION_10_5) || MAC_OS_X_VERSION_MIN_REQUIRED < MAC_OS_X_VERSION_10_5
-- (BOOL)writeToFile:(NSString *)path atomically:(BOOL)useAuxiliaryFile createDirectories:(BOOL)shouldCreateDirectories;
-#endif
-#endif
-
 - (NSString *)htmlString;
+#endif
 
 /* Regular expression encoding */
 - (NSString *)regularExpressionForLiteralString;
 
+@property (readonly) BOOL isEmailAddress;
 
 /* Mail header encoding according to RFCs 822 and 2047 */
 - (NSString *)asRFC822Word;         /* Returns an 'atom' or 'quoted-string', or nil if not possible */
 - (NSString *)asRFC2047EncodedWord; /* Returns an 'encoded-word' representing the receiver */
 - (NSString *)asRFC2047Phrase;      /* Returns a sequence of atoms, quoted-strings, and encoded-words, as appropriate to represent the receiver in the syntax defined by RFC822 and RFC2047. */
 
+- (NSString *)stringByTruncatingToMaximumLength:(NSUInteger)maximumLength atSpaceAfterMinimumLength:(NSUInteger)minimumLength;
+
+/// Create a dictionary for use with CSLocalizedString (for example)
+/// Adopted with ever so slight modification from here https://forums.developer.apple.com/thread/15943
+/// Take note of the warning: """IMPORTANT This is crazy inefficient.  If you’re doing this for lots of strings, you’ll want to process the dictionaries in bulk and cache the results."""
++ (NSDictionary *)localizedStringDictionaryForKey:(NSString *)key table:(NSString *)tableName bundle:(NSBundle *)bundle;
+
 @end
 
 /* Creating an ASCII representation of a floating-point number, without using exponential notation. */
 /* OFCreateDecimalStringFromDouble() formats a double into an NSString (which must be released by the caller, hence the word 'create' in the function name). This function will never return a value in exponential notation: it will always be in integer/decimal notation. If the returned string includes a decimal point, there will always be at least one digit on each side of the decimal point. */
-extern NSString *OFCreateDecimalStringFromDouble(double value);
+extern NSString *OFCreateDecimalStringFromDouble(double value) NS_RETURNS_RETAINED;
 /* OFASCIIDecimalStringFromDouble() returns a malloc()d buffer containing the decimal string, in ASCII. */
 extern char *OFASCIIDecimalStringFromDouble(double value);
 /* OFShortASCIIDecimalStringFromDouble() returns a malloc()d buffer containing the decimal string, in ASCII.
@@ -135,5 +158,5 @@ extern char *OFASCIIDecimalStringFromDouble(double value);
    allowExponential indicates that an exponential representation may be returned if it's shorter than the plain decimal representation.
    forceLeadingZero forces a digit before the decimal point (e.g. 0.1 instead of .1). */
 extern char *OFShortASCIIDecimalStringFromDouble(double value, double eDigits, BOOL allowExponential, BOOL forceLeadingZero);
-#define OF_FLT_DIGITS_E (16.6355323334)  // equal to log(FLT_MANT_DIG) / log(FLT_RADIX)
-
+extern double OFFloatDigitsBaseE(void);
+#define OF_FLT_DIGITS_E (OFFloatDigitsBaseE()) // How many digits to preserve from a float
