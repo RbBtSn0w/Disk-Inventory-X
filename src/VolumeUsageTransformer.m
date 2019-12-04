@@ -88,7 +88,7 @@
 	
 	if ( attribs == nil )
 	{
-		NSMutableParagraphStyle *rightAlignStyle = [[[NSParagraphStyle defaultParagraphStyle] mutableCopy] autorelease];
+		NSMutableParagraphStyle *rightAlignStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
 		[rightAlignStyle setAlignment: NSRightTextAlignment];
 		
 		NSFont *font = [NSFont systemFontOfSize: [NSFont smallSystemFontSize]];
