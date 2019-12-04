@@ -1,6 +1,7 @@
 
 #import <Cocoa/Cocoa.h>
 
+NS_ASSUME_NONNULL_BEGIN
 // ======================================================
 
 @interface DirectoryScanThread : NTThreadRunnerParam
@@ -16,3 +17,4 @@
 - (NSArray*) directoryContent; //result; array of NTFileDesc
 
 @end
+NS_ASSUME_NONNULL_END

@@ -74,7 +74,7 @@
 	return [ntIcon imageForSize: size label: 0 select: NO];
 }
 
-- (NSArray*) directoryContentsAutoreleased: (BOOL) autoreleasedResult
+- (NSArray*_Nullable) directoryContentsAutoreleased
 {
 	const FSCatalogInfoBitmap catalogInfoBitmapBulk =
 												kDefaultCatalogInfoBitmap //define in CocoatechFile
@@ -87,7 +87,7 @@
 												| kFSCatInfoAttrMod
 												| kFSCatInfoContentMod;
 	
-	NSMutableArray *result;
+    NSMutableArray *result = nil;
 	
 	OSStatus outStatus;
 	FSIterator iterator;
@@ -128,10 +128,7 @@
 											 
 					if ( result == nil )
 					{
-						if ( autoreleasedResult )
-							result = [NSMutableArray arrayWithCapacity:actualCount];
-						else
-							result = [[NSMutableArray alloc] initWithCapacity: actualCount];
+                        result = [[NSMutableArray alloc] initWithCapacity: actualCount];
 					}
 					
 					[result addObject:fileDesc];
@@ -149,7 +146,11 @@
 		[[NTFileDescMemCache sharedInstance] checkin:cache];
 	}
 	
-	return result;
+    if (result) {
+        return [result autorelease];
+    } else {
+        return nil;
+    }
 }
 
 

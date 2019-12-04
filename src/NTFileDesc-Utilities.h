@@ -8,11 +8,14 @@
 
 #import <Cocoa/Cocoa.h>
 
+NS_ASSUME_NONNULL_BEGIN
 
 @interface NTFileDesc(Utilities)
 
 - (NSString*) displayPath;
 - (NSImage*) iconImageWithSize: (unsigned) size;
-- (NSArray*) directoryContentsAutoreleased: (BOOL) autoreleasedResult;
+- (NSArray*_Nullable) directoryContentsAutoreleased;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -9,9 +9,11 @@
 #import "DirectoryScanThread.h"
 #import "NTFileDesc-Utilities.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface DirectoryScanThread(Private)
 - (void) setDirectoryToScan: (NTFileDesc*) desc;
-- (void) setDirectoryContent: (NSArray*) result; //result; array of NTFileDesc
+- (void) setDirectoryContent: (NSArray*_Nullable) result; //result; array of NTFileDesc
 @end
 
 
@@ -63,7 +65,7 @@
 }
 
 //result; array of NTFileDesc
-- (void) setDirectoryContent: (NSArray*) result
+- (void) setDirectoryContent: (NSArray*_Nullable) result
 {
 	if ( result != _directoryContent )
 	{
@@ -83,15 +85,14 @@
 {
     NTFileDesc* directory = [self directoryToScan];
 	
-    NSArray *result = [directory directoryContentsAutoreleased: NO];
+    NSArray *result = [directory directoryContentsAutoreleased];
     
 	if (![[self helper] killed])
 		[self setDirectoryContent: result];
-	
-	[result release];
 		
     return (![[self helper] killed]);
 }
 
 @end
 
+NS_ASSUME_NONNULL_END
