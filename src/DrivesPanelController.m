@@ -219,7 +219,7 @@
 				NSMutableDictionary *entry = [NSMutableDictionary dictionaryWithObject: volume forKey: @"volume"];
 				
 				//put volume icon for key "image" in the entry dictionary
-				NSImage *volImage = [NSImage imageForDesc: [volume mountPoint] size: 32];
+				NSImage *volImage = [[volume mountPoint] iconImage: 32];
                 
                 NSAssert( volImage != nil, @"volImage != nil");
 				
@@ -259,7 +259,7 @@
         NSMutableDictionary *entry = [NSMutableDictionary dictionaryWithObject: volume forKey: @"volume"];
         
         //put volume icon for key "image" in the entry dictionary
-        NSImage *volImage = [NSImage imageForDesc: [volume mountPoint] size: 32];
+        NSImage *volImage = [[volume mountPoint] iconImage: 32];
         
         [entry setObject: ( volImage == nil ? (id)[NSNull null] : volImage )
                   forKey: @"image"];
