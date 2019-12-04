@@ -1,6 +1,6 @@
 #import <stdint.h>
 
 
-uint64_t getTime();
+extern uint64_t getTime(void);
 
-double subtractTime(uint64_t endTime, uint64_t startTime);
+extern double subtractTime(uint64_t endTime, uint64_t startTime);
