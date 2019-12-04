@@ -54,8 +54,7 @@
 		//the preferences shown in each page must be declared proberly in info.plist!
 		
 		//(OAPreferenceController has an ivar AND a selector called "allClientRecords"
-		//GCC 4.0 doesn't seem to get this and warns: 'PrefsPanelController' may not respond to '-allClientRecords')
-        clientEnumerator = [[self allClientRecords] objectEnumerator];
+        clientEnumerator = [[self.class allClientRecords] objectEnumerator];
         while ((aClientRecord = [clientEnumerator nextObject])) {
             NSArray *preferenceKeys;
             NSEnumerator *keyEnumerator;
