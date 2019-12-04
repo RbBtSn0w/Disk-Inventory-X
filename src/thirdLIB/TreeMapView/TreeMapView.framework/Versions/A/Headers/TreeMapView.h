@@ -79,7 +79,7 @@ typedef TMVItem* TMVCellId;
 // required
 - (id) treeMapView: (TreeMapView*) view child: (NSUInteger) index ofItem: (id) item;
 - (BOOL) treeMapView: (TreeMapView*) view isNode: (id) item;
-- (unsigned) treeMapView: (TreeMapView*) view numberOfChildrenOfItem: (id) item;
+- (NSUInteger) treeMapView: (TreeMapView*) view numberOfChildrenOfItem: (id) item;
 - (unsigned long long) treeMapView: (TreeMapView*) view weightByItem: (id) item;
 @end
 
