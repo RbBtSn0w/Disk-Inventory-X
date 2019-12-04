@@ -147,7 +147,7 @@
             result = [NSMutableArray arrayWithArray:(NSArray*)outURLs];
             
             // filter out .exe files
-            int i, cnt = [result count];
+            NSUInteger i, cnt = [result count];
             NSURL *url;
             
             for (i=(cnt-1);i>=0;i--)

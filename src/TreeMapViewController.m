@@ -114,11 +114,11 @@
     return ![fsItem isSpecialItem] && [[self document] itemIsNode: fsItem];
 }
 
-- (unsigned) treeMapView: (TreeMapView*) view numberOfChildrenOfItem: (id) item
+- (NSUInteger) treeMapView: (TreeMapView*) view numberOfChildrenOfItem: (id) item
 {
     FSItem *fsItem = ( item == nil ? [self rootItem] : item );
 
-    unsigned childCount = [fsItem childCount];
+    NSUInteger childCount = [fsItem childCount];
 	
 	//items representing other space and free space
 	if ( fsItem == [self rootItem] )

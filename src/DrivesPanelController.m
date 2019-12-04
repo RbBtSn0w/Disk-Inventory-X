@@ -200,7 +200,7 @@
 //fill array "_volumes" with mounted volumes and their images
 - (void) rebuildVolumesArrayUsingCocoaTech
 {
-	NSArray *vols = [[NTMountedVolumeMgr sharedInstance] mountedVolumes];
+    NSArray *vols = nil;//[[NTMountedVolumeMgr sharedInstance] mountedVolumes];
 	
 	[self willChangeValueForKey: @"volumes"];
 
@@ -337,7 +337,7 @@
 		if ( [progrInd superview] != tableView )
 			[tableView addSubview: progrInd];
 		
-		int colIndex = [tableView columnWithIdentifier: [tableColumn identifier]];
+		NSInteger colIndex = [tableView columnWithIdentifier: [tableColumn identifier]];
 		NSRect cellRect = [tableView frameOfCellAtColumn: colIndex row: row];
 		
 		const float progrIndThickness = NSProgressIndicatorPreferredLargeThickness; 

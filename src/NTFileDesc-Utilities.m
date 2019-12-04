@@ -54,7 +54,7 @@
 {
 	NSArray *fsRefPath = [self FSRefPath: YES /*includeSelf*/];
 	NSString *displayPath = NSOpenStepRootDirectory();
-	unsigned i = [fsRefPath count];
+	NSUInteger i = [fsRefPath count];
 	while ( i-- )
 	{
 		NTFSRefObject *fsRef = [fsRefPath objectAtIndex: i];

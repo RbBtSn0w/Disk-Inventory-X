@@ -103,7 +103,7 @@
     return [[self document] itemIsNode: item];
 }
 
-- (int) outlineView: (NSOutlineView *) outlineView numberOfChildrenOfItem: (id) item
+- (NSUInteger) outlineView: (NSOutlineView *) outlineView numberOfChildrenOfItem: (id) item
 {
 	FSItem *fsItem = (item == nil) ? [self rootItem] : item;
 	

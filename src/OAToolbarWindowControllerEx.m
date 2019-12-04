@@ -180,7 +180,7 @@ static NSMutableDictionary *g_toolbatStateImages = nil;
 			{
 				//delete periods at end of title (e.g. "Preferences...")
 				NSString *title = [menuItem title];
-				unsigned numOfRemainingChars = [title length];
+				NSUInteger numOfRemainingChars = [title length];
 				unichar lastChar;
 				do
 				{
@@ -289,7 +289,7 @@ static NSMutableDictionary *g_toolbatStateImages = nil;
 	//we enumerate backwards as for the main menu bar the more application specific actions
 	//are often in the menus after "File" and "Edit", so it is more likely to find the
 	//item in question in the rear menus (this may not apply to sub menus, but we do a linar search anyway) 
-	int i = [self numberOfItems];
+	NSInteger i = [self numberOfItems];
 	while ( i-- )
 	{
 		NSMenuItem *menuItem = [self itemAtIndex: i];

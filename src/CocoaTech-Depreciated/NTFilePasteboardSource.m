@@ -97,7 +97,7 @@
         {
             NSMutableArray *pasteTypes = [NSMutableArray array];
             NTFileTypeIdentifier* identifier = [desc typeIdentifier];
-            int i, cnt = [types count];
+            NSUInteger i, cnt = [types count];
             NSString* type;
 
             for (i=0;i<cnt;i++)
@@ -145,7 +145,7 @@
 
             if ([type isEqualToString:NSFilenamesPboardType])
             {
-                int i, cnt = [_descs count];
+                NSUInteger i, cnt = [_descs count];
                 NSMutableArray* pathsArray = [NSMutableArray array];
 
                 for (i=0;i<cnt;i++)

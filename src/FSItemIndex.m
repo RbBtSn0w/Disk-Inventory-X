@@ -125,7 +125,7 @@
 
 - (void) addItemsFromArray: (NSArray*) items
 {
-	unsigned int i = [items count];
+	NSUInteger i = [items count];
 	
 	NSAutoreleasePool *localPool = (i > 200) ? [[NSAutoreleasePool alloc] init] : nil;
 	

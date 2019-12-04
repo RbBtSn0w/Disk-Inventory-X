@@ -81,12 +81,12 @@
 
 - (IBAction) showFilesInSelectionList: (id) sender
 {
-	int selectionListDrawerState = [[_windowController selectionListDrawer] state];
+	NSInteger selectionListDrawerState = [[_windowController selectionListDrawer] state];
 	
 	if ( selectionListDrawerState == NSDrawerClosingState || selectionListDrawerState == NSDrawerClosedState )
 		[[_windowController selectionListDrawer] toggle: self];
 	
-	int selectedRow = [_tableView selectedRow];
+	NSInteger selectedRow = [_tableView selectedRow];
 	NSAssert( selectedRow >= 0, @"kinds tableview should have a selection" );
 	
 	FileKindStatistic *kindStat = [(NSArray*)[_kindsTableArrayController arrangedObjects] objectAtIndex: selectedRow];
