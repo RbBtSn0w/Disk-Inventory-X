@@ -39,7 +39,7 @@
 
 - (NSEnumerator *) childEnumerator;
 - (TMVItem*) childAtIndex: (unsigned) index;
-- (unsigned) childCount;
+- (NSUInteger) childCount;
 
 - (NSRect) rect;
 - (TMVItem *) hitTest: (NSPoint) aPoint;
