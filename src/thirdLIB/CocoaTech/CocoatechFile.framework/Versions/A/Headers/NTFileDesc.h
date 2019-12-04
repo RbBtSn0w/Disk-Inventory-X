@@ -11,7 +11,8 @@
 @class NTVolume, NTFileDescData, NTMetadata, NSDate, NTIcon, NTFSRefObject, NTVolumeMgrState, NTFileDesc, NTFileTypeIdentifier;
 
 @interface NTFileDesc : NSObject <NSCoding>
-{    	
+{
+    @public
 	NTFileDescData* cachedData;
 	NTFSRefObject* FSRefObject;
     NTVolumeMgrState *volumeMgrState;

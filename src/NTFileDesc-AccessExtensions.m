@@ -15,7 +15,7 @@
 
 - (void) setKindString: (NSString*) kindString
 {
- 	[[self cache] setKind: kindString];
+ 	[self->cachedData setKind: kindString];
 }
 
 - (BOOL) isKindStringSet
@@ -44,7 +44,7 @@
 	
 	NSString *name = [self name];
 	NSRange extensionRange = {0,0};
-	if ( [[self cache] extension_initialized: nil] )
+	if ( [self->cachedData extension_initialized: nil] )
 	{
 		//if we know the extenson already, use that
 		NSUInteger extensionLength = [[self extension] length];
@@ -74,7 +74,7 @@
 		else
 			displayName = [name substringToIndex: extensionRange.location];
 		
-		[[self cache] setDisplayName: displayName];
+		[self->cachedData setDisplayName: displayName];
 		
 		return displayName;
 	}

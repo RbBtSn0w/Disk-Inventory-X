@@ -893,7 +893,7 @@ static struct _BulkCatalogInfoRec {
 		//although NTFSRefObject encapsulates the FSRef and CatalogInfo structures, it does
 		//not handle size information; this is done by NSFileDescData
 		//so we need to store the size infomation in _fileDesc's cache object
-		NTFileDescData * dataCache = [_fileDesc cache];
+		NTFileDescData * dataCache = _fileDesc->cachedData;
 		
 		[dataCache setFileSize:catalogInfo->dataPhysicalSize + catalogInfo->rsrcPhysicalSize];	
 		[dataCache setPhysicalFileSize:catalogInfo->dataLogicalSize + catalogInfo->rsrcLogicalSize];

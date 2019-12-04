@@ -13,15 +13,11 @@
     BOOL mouseOver;
 	NSTrackingArea* trackingArea;
 	
-	NSMenu* menu;
-	
 	NSImage* dimmedImage;
 	NSImage* normalImage;
 	NSImage* mMouseOverImage;
 	NSImage* clickedImage;
 }
-
-@property (nonatomic, retain) NSMenu* menu;
 
 + (NTImageButton*)button:(NSImage*)image 
 		  mouseOverImage:(NSImage*)mouseOverImage;  // creates dimmed image internally
