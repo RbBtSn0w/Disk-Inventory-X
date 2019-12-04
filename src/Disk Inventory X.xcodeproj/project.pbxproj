@@ -129,6 +129,20 @@
 		B11C9A2E238D5ECC0062C724 /* OmniAppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OmniAppKit.framework; path = thirdLIB/OmniFrameworks/OmniAppKit.framework; sourceTree = "<group>"; };
 		B11C9A2F238D5ECC0062C724 /* OmniFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OmniFoundation.framework; path = thirdLIB/OmniFrameworks/OmniFoundation.framework; sourceTree = "<group>"; };
 		B11C9A30238D5ECC0062C724 /* OmniBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OmniBase.framework; path = thirdLIB/OmniFrameworks/OmniBase.framework; sourceTree = "<group>"; };
+		B145916B2397DA3300A172FF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		B145916D2397DA3300A172FF /* en */ = {isa = PBXFileReference; lastKnownFileType = folder; name = en; path = en.lproj/Help; sourceTree = "<group>"; };
+		B145916F2397DA3300A172FF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B14591712397DA3300A172FF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B14591772397DA3400A172FF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Preferences.strings; sourceTree = "<group>"; };
+		B14591822397DA4D00A172FF /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = en.lproj/VolumesPanel.nib; sourceTree = "<group>"; };
+		B14591832397DA4D00A172FF /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = en.lproj/InfoPanel.nib; sourceTree = "<group>"; };
+		B14591842397DA4D00A172FF /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = en.lproj/FinderCMPreferencesPage.nib; sourceTree = "<group>"; };
+		B14591852397DA4D00A172FF /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = en.lproj/TreeMapPreferencesPage.nib; sourceTree = "<group>"; };
+		B14591862397DA4D00A172FF /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = en.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		B14591872397DA4D00A172FF /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = en.lproj/TreeMap.nib; sourceTree = "<group>"; };
+		B14591882397DA4D00A172FF /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = en.lproj/GeneralPreferencesPage.nib; sourceTree = "<group>"; };
+		B14591892397DA4E00A172FF /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = en.lproj/LoadingPanel.nib; sourceTree = "<group>"; };
+		B145918A2397DA4E00A172FF /* en */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = en; path = en.lproj/DonationPanel.nib; sourceTree = "<group>"; };
 		B19827CE238D4DE400561962 /* TreeMapView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TreeMapView.framework; path = thirdLIB/TreeMapView/TreeMapView.framework; sourceTree = "<group>"; };
 		B19827CF238D4DE400561962 /* CocoaTechStrings.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaTechStrings.framework; path = thirdLIB/CocoaTech/CocoaTechStrings.framework; sourceTree = "<group>"; };
 		B19827D1238D4DE400561962 /* CocoatechFile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoatechFile.framework; path = thirdLIB/CocoaTech/CocoatechFile.framework; sourceTree = "<group>"; };
@@ -164,7 +178,6 @@
 		FC42B86D2202405A0080570A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = es; path = es.lproj/Credits.rtf; sourceTree = "<group>"; };
 		FC42B86E2202405A0080570A /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FC42B86F2202405A0080570A /* es */ = {isa = PBXFileReference; lastKnownFileType = folder; name = es; path = es.lproj/Help; sourceTree = "<group>"; };
-		FC4C4AC009802035004CCA22 /* English */ = {isa = PBXFileReference; lastKnownFileType = folder; name = English; path = English.lproj/Help; sourceTree = "<group>"; };
 		FC4C4FF40981520A004CCA22 /* AppsForItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppsForItem.h; sourceTree = "<group>"; };
 		FC4C4FF50981520A004CCA22 /* AppsForItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppsForItem.m; sourceTree = "<group>"; };
 		FC7F775B1067BAB10090E839 /* NTFilePasteboardSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NTFilePasteboardSource.h; sourceTree = "<group>"; };
@@ -287,19 +300,6 @@
 		FCCFB339097FA44A009EA2B6 /* FinderCMPreferences.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = FinderCMPreferences.tiff; sourceTree = "<group>"; };
 		FCCFB33A097FA44A009EA2B6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCCFB33B097FA44A009EA2B6 /* AppIcon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = AppIcon.icns; sourceTree = "<group>"; };
-		FCCFB34E097FA4C1009EA2B6 /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = English.lproj/Credits.rtf; sourceTree = "<group>"; };
-		FCCFB350097FA4C1009EA2B6 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/DonationPanel.nib; sourceTree = "<group>"; };
-		FCCFB352097FA4C1009EA2B6 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/FinderCMPreferencesPage.nib; sourceTree = "<group>"; };
-		FCCFB354097FA4C1009EA2B6 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/GeneralPreferencesPage.nib; sourceTree = "<group>"; };
-		FCCFB35F097FA4C1009EA2B6 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/InfoPanel.nib; sourceTree = "<group>"; };
-		FCCFB361097FA4C1009EA2B6 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FCCFB363097FA4C1009EA2B6 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/LoadingPanel.nib; sourceTree = "<group>"; };
-		FCCFB365097FA4C1009EA2B6 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Localizable.strings; sourceTree = "<group>"; };
-		FCCFB367097FA4C1009EA2B6 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MainMenu.nib; sourceTree = "<group>"; };
-		FCCFB369097FA4C1009EA2B6 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/Preferences.strings; sourceTree = "<group>"; };
-		FCCFB36B097FA4C1009EA2B6 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/TreeMap.nib; sourceTree = "<group>"; };
-		FCCFB36D097FA4C1009EA2B6 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/TreeMapPreferencesPage.nib; sourceTree = "<group>"; };
-		FCCFB36F097FA4C1009EA2B6 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/VolumesPanel.nib; sourceTree = "<group>"; };
 		FCD5DAFB09CDD4260051C1CF /* MainWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindow.h; sourceTree = "<group>"; };
 		FCD5DAFC09CDD4260051C1CF /* MainWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindow.m; sourceTree = "<group>"; };
 		FCD71DB50984141E00590D16 /* feature suggestions.txt */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text; name = "feature suggestions.txt"; path = "documentation/feature suggestions.txt"; sourceTree = "<group>"; };
@@ -687,14 +687,13 @@
 			};
 			buildConfigurationList = C05733CB08A9546B00998B17 /* Build configuration list for PBXProject "Disk Inventory X" */;
 			compatibilityVersion = "Xcode 9.3";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 1;
 			knownRegions = (
-				English,
-				en,
 				de,
 				es,
 				fr,
+				en,
 			);
 			mainGroup = 2A37F4AAFDCFA73011CA2CEA /* Disk Inventory X */;
 			projectDirPath = "";
@@ -824,10 +823,10 @@
 		FC4C4ABF09802035004CCA22 /* Help */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FC4C4AC009802035004CCA22 /* English */,
 				FC2D7D7E21FE4ABC004D0614 /* de */,
 				FC42B86F2202405A0080570A /* es */,
 				FCA1D0C72205FF2D004E9468 /* fr */,
+				B145916D2397DA3300A172FF /* en */,
 			);
 			name = Help;
 			sourceTree = SOURCE_ROOT;
@@ -835,10 +834,10 @@
 		FCCFB34D097FA4C1009EA2B6 /* Credits.rtf */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FCCFB34E097FA4C1009EA2B6 /* English */,
 				FC2D7D7C21FE4ABB004D0614 /* de */,
 				FC42B86D2202405A0080570A /* es */,
 				FCA1D0C52205FF2D004E9468 /* fr */,
+				B145916B2397DA3300A172FF /* en */,
 			);
 			name = Credits.rtf;
 			sourceTree = "<group>";
@@ -846,10 +845,10 @@
 		FCCFB34F097FA4C1009EA2B6 /* DonationPanel.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FCCFB350097FA4C1009EA2B6 /* English */,
 				FC2D7D7521FE4ABB004D0614 /* de */,
 				FC42B8662202405A0080570A /* es */,
 				FCA1D0BE2205FF2D004E9468 /* fr */,
+				B145918A2397DA4E00A172FF /* en */,
 			);
 			name = DonationPanel.nib;
 			sourceTree = "<group>";
@@ -857,10 +856,10 @@
 		FCCFB351097FA4C1009EA2B6 /* FinderCMPreferencesPage.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FCCFB352097FA4C1009EA2B6 /* English */,
 				FCEEFC0421FE5B6700E9785E /* de */,
 				FC42B8642202405A0080570A /* es */,
 				FCA1D0BC2205FF2D004E9468 /* fr */,
+				B14591842397DA4D00A172FF /* en */,
 			);
 			name = FinderCMPreferencesPage.nib;
 			sourceTree = "<group>";
@@ -868,10 +867,10 @@
 		FCCFB353097FA4C1009EA2B6 /* GeneralPreferencesPage.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FCCFB354097FA4C1009EA2B6 /* English */,
 				FC2D7D7321FE4ABB004D0614 /* de */,
 				FC42B8632202405A0080570A /* es */,
 				FCA1D0BB2205FF2D004E9468 /* fr */,
+				B14591882397DA4D00A172FF /* en */,
 			);
 			name = GeneralPreferencesPage.nib;
 			sourceTree = "<group>";
@@ -879,10 +878,10 @@
 		FCCFB35E097FA4C1009EA2B6 /* InfoPanel.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FCCFB35F097FA4C1009EA2B6 /* English */,
 				FC2D7D7621FE4ABB004D0614 /* de */,
 				FC42B8672202405A0080570A /* es */,
 				FCA1D0BF2205FF2D004E9468 /* fr */,
+				B14591832397DA4D00A172FF /* en */,
 			);
 			name = InfoPanel.nib;
 			sourceTree = "<group>";
@@ -890,10 +889,10 @@
 		FCCFB360097FA4C1009EA2B6 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FCCFB361097FA4C1009EA2B6 /* English */,
 				FC2D7D7D21FE4ABC004D0614 /* de */,
 				FC42B86E2202405A0080570A /* es */,
 				FCA1D0C62205FF2D004E9468 /* fr */,
+				B145916F2397DA3300A172FF /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -901,10 +900,10 @@
 		FCCFB362097FA4C1009EA2B6 /* LoadingPanel.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FCCFB363097FA4C1009EA2B6 /* English */,
 				FC2D7D7721FE4ABB004D0614 /* de */,
 				FC42B8682202405A0080570A /* es */,
 				FCA1D0C02205FF2D004E9468 /* fr */,
+				B14591892397DA4E00A172FF /* en */,
 			);
 			name = LoadingPanel.nib;
 			sourceTree = "<group>";
@@ -912,10 +911,10 @@
 		FCCFB364097FA4C1009EA2B6 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FCCFB365097FA4C1009EA2B6 /* English */,
 				FC2D7D7B21FE4ABB004D0614 /* de */,
 				FC42B86C2202405A0080570A /* es */,
 				FCA1D0C42205FF2D004E9468 /* fr */,
+				B14591712397DA3300A172FF /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -923,10 +922,10 @@
 		FCCFB366097FA4C1009EA2B6 /* MainMenu.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FCCFB367097FA4C1009EA2B6 /* English */,
 				FC2D7D7821FE4ABB004D0614 /* de */,
 				FC42B8692202405A0080570A /* es */,
 				FCA1D0C12205FF2D004E9468 /* fr */,
+				B14591862397DA4D00A172FF /* en */,
 			);
 			name = MainMenu.nib;
 			sourceTree = "<group>";
@@ -934,10 +933,10 @@
 		FCCFB368097FA4C1009EA2B6 /* Preferences.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FCCFB369097FA4C1009EA2B6 /* English */,
 				FC2D7D7421FE4ABB004D0614 /* de */,
 				FC42B8652202405A0080570A /* es */,
 				FCA1D0BD2205FF2D004E9468 /* fr */,
+				B14591772397DA3400A172FF /* en */,
 			);
 			name = Preferences.strings;
 			sourceTree = "<group>";
@@ -945,10 +944,10 @@
 		FCCFB36A097FA4C1009EA2B6 /* TreeMap.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FCCFB36B097FA4C1009EA2B6 /* English */,
 				FC2D7D7921FE4ABB004D0614 /* de */,
 				FC42B86A2202405A0080570A /* es */,
 				FCA1D0C22205FF2D004E9468 /* fr */,
+				B14591872397DA4D00A172FF /* en */,
 			);
 			name = TreeMap.nib;
 			sourceTree = "<group>";
@@ -956,10 +955,10 @@
 		FCCFB36C097FA4C1009EA2B6 /* TreeMapPreferencesPage.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FCCFB36D097FA4C1009EA2B6 /* English */,
 				FC2D7D7221FE4ABB004D0614 /* de */,
 				FC42B8622202405A0080570A /* es */,
 				FCA1D0BA2205FF2D004E9468 /* fr */,
+				B14591852397DA4D00A172FF /* en */,
 			);
 			name = TreeMapPreferencesPage.nib;
 			sourceTree = "<group>";
@@ -967,10 +966,10 @@
 		FCCFB36E097FA4C1009EA2B6 /* VolumesPanel.nib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FCCFB36F097FA4C1009EA2B6 /* English */,
 				FC2D7D7A21FE4ABB004D0614 /* de */,
 				FC42B86B2202405A0080570A /* es */,
 				FCA1D0C32205FF2D004E9468 /* fr */,
+				B14591822397DA4D00A172FF /* en */,
 			);
 			name = VolumesPanel.nib;
 			sourceTree = "<group>";
