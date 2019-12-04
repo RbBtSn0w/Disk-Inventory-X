@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
 //
 // The treemap colors all have the "brightness" BASE_BRIGHTNESS.
 // I define brightness as a number from 0 to 3.0.
@@ -19,7 +20,7 @@
 {
     NSRect _rect;
     NSColor *_color;
-    float _surface[4];
+    CGFloat _surface[4];
 }
 
 - (id) init;
@@ -31,14 +32,20 @@
 - (NSColor*) color;
 - (void) setColor: (NSColor*) newColor;
 
-- (float*) surface;
-- (void) setSurface: (const float*) newsurface;
+- (CGFloat*) surface;
+- (void) setSurface: (const CGFloat*) newsurface;
 
 - (void) addRidgeByHeightFactor: (float) heightFactor;
 
 - (void) renderCushionInBitmap: (NSBitmapImageRep*) bitmap;
+- (void) renderCushionInBitmapGeneric: (NSBitmapImageRep*) bitmap;
+#ifdef __ppc__
+- (void) renderCushionInBitmapPPC603: (NSBitmapImageRep*) bitmap; //PowerPC optimzed version (603+) double precision
+- (void) renderCushionInBitmapPPC603Single: (NSBitmapImageRep*) bitmap; //PowerPC optimzed version (603+) single precision
+#endif //__ppc__
 
-+ (void) normalizeColorRed: (float*) red green: (float*) green blue: (float*) blue;
++ (void) normalizeColorRed: (CGFloat*) red green: (CGFloat*) green blue: (CGFloat*) blue;
 + (NSColor*) normalizeColor: (NSColor*) color;
 
 @end
+NS_ASSUME_NONNULL_END

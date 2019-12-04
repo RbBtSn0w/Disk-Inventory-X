@@ -8,14 +8,19 @@
 
 #import <Cocoa/Cocoa.h>
 
+NS_ASSUME_NONNULL_BEGIN
 
 @interface NSBitmapImageRep (CreationExtensions)
 
-//creates a Bitmap with 24 bit color depth and no alpha component							 
-- (id) initRGBBitmapWithWidth: (int) width height: (int) height;
+//creates a bitmap image rep with size (respecting scaling factor) and color space of the view
++ (NSBitmapImageRep*) imageRepCompatibleWithView: (NSView*) view;
 
-//creates an autoreleased NSImage with the samme dimensions as the NSBitmapImageRep
-//and adds the NSBitmapImageRep as the only image represensation;
-//set flipped coordinates if "view" is flipped
+//creates a Bitmap with 24 bit color depth and no alpha component
+- (id) initRGBBitmapWithWidth: (NSInteger) width height: (NSInteger) height;
+
+//creates an autoreleased NSImage with the same dimensions as the NSBitmapImageRep
+//and adds the NSBitmapImageRep as the only image represensation
 - (NSImage*) suitableImageForView: (NSView*) view;
 @end
+
+NS_ASSUME_NONNULL_END
