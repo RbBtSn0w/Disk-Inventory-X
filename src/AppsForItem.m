@@ -31,7 +31,7 @@
 	self = [super init];
 	if ( self != nil )
 	{
-		_itemDesc = [[item newDesc] retain];
+		_itemDesc = [[item freshDesc] retain];
 	}
 	
 	return self;
